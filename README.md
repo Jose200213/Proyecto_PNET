@@ -7,8 +7,11 @@
   El sitio web consta de cuatro páginas principales:
   
   index.html – Página de bienvenida y presentación del cine.
+  
   salas.html – Información detallada sobre las salas, capacidad e instalaciones.
+  
   reserva.html – Formulario de reserva de espacios.
+  
   X.html – Página adicional con información relevante (ubicación, eventos, precios, etc.).
 
 
