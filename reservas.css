@@ -1,0 +1,212 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- ESTILO GLOBAL ---------- */
+body {
+    /* Gradiente vertical oscuro -> rojo */
+    background: linear-gradient(to bottom, #4B0000, #000000);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Enlaces por defecto */
+a {
+    color: #FFD700; /* Dorado */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- CABECERA (HEADER / NAVBAR) ---------- */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Título MyCinema */
+header p {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin: 0;
+    font-style: italic;
+    padding: 4px;
+    margin-right: 10px;
+}
+
+/* Logo */
+header .logo img {
+    border: 2px solid #FFD700; /* Marco dorado para resaltar */
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+header .logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;    
+}
+
+/* Navegación */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: #FFD700;
+    color: #000;
+    transform: translate(-2px);
+}
+
+
+
+/* ---------- PÁGINA DE RESERVAS (RESERVA.HTML) ---------- */
+
+/* Contenedor principal de la reserva */
+.reserva-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+/* Formulario de reserva */
+.formulario-reserva {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.formulario-reserva label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.formulario-reserva input,
+.formulario-reserva select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Botones dentro del formulario */
+.botones-reserva {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-total,
+.btn-reservar {
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-total:hover,
+.btn-reservar:hover {
+    background-color: #FFC107;
+}
+
+/* Imagen de asientos */
+/*
+.imagen-asientos {
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-asientos p {
+    font-size: 1.2rem;
+    color: #FFD700;
+    padding: 20px;
+}
+*/
+
+/* Sección de asientos */
+
+.asientos-section {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.asientos-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+
+/* Contenedor de asientos usando CSS Grid:
+    - 5 columnas de 50px para el bloque izquierdo,
+    - 30px para el pasillo,
+    - 5 columnas de 50px para el bloque derecho */
+.seats-container {
+    display: grid;
+    grid-template-columns: repeat(5, 50px) 30px repeat(5, 50px);
+    grid-auto-rows: 50px;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilo para cada asiento */
+.seat {
+    background-color: #FFD700;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    transition: background-color 0.3s;
+}
+
+.seat:hover {
+    background-color: #FFC107;
+}
+
+/* El pasillo (aisle) se deja transparente */
+.aisle {
+    background: transparent;
+    border: none;
+}
