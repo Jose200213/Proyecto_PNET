@@ -11,179 +11,34 @@
    <body style="margin: 0; display: flex; flex-direction: column;">
 
       <!-- Construcción del navegador -->
-      <header class="nav-container" style="background-color: rgba(113, 13, 18, 0.7); height: 100px; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-
-         <!-- Contenedor del logo y nombre de la página -->
-         <div class="nav-webpage-container" style="background-color: rgba(179, 231, 67, 0.8); height: 100%; width: 300px; display: flex; align-items: center; justify-content: space-evenly; margin-left: 2%;">
-            <div class="nav-webpage-name" style="background-color: rgba(67, 231, 185, 0.8); height: 50%; width: 65%; text-align: end;">
-               <p>MyCinema</p>
-            </div>
-            <div class="nav-webpage-logo" style="background-color: rgba(67, 141, 231, 0.8); height: 75%; width: 30%; border-radius: 100px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-               <img alt="logo" src="
-data:image/png;base64,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
-">
+      <header>
+         <div class="logo-container">
+            <p>MyCinema</p>
+            <div class="logo">
+              <img src="img/logoWeb.webp" alt="MyCinema" width="100" height="100">
             </div>
          </div>
-
-         <!-- Contenedor de los enlaces a otras páginas -->
-         <div class="nav-proper-container" style="background-color: rgba(231, 193, 67, 0.8); height: 100%;width: 300px; margin-right: 2%;">
-
-            <nav class="nav" style="height: 100%; width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="bienvenida.html" class="nav-anchor-text">Inicio</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="salas.html" class="nav-anchor-text">Salas</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="reservas.html" class="nav-anchor-text">Reservas</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="info.html" class="nav-anchor-text">Info</a>
-               </div>
-            </nav>
-
-         </div> 
-
+         <nav>
+            <ul>
+               <li><a href="bienvenida.html">Inicio</a></li>
+               <li><a href="salas.html">Salas</a></li>
+               <li><a href="reservas.html">Reservas</a></li>
+               <li><a href="info.html">Info</a></li>
+            </ul>
+         </nav>
       </header>
 
-      <!-- Construcción del cuerpo de la bienvenida -->
-      <div class="welcome-container" style="background-color: rgba(156, 6, 6, 0.8); height: 780px; width: 100%; display: flex; justify-content: center; flex-direction: column; align-items: center;">
-
-         <!-- Tarjetas de salas -->
-         <div class="room-card-container" style="background-color: rgba(32, 117, 3, 0.8); height: 480px; width: 95%; display: flex; justify-content: space-evenly; align-items: center;">
-
-            <article class="room-card" style="background-color: rgba(56, 165, 219, 0.8); height: 75%; width: 30%; display: flex; align-items: center; flex-direction: column;">
-
-               <div class="room-card-title" style="background-color: rgba(37, 120, 162, 0.8); height: 15%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%;">
-                  <h2>Sala 1</h2>
-               </div>
-
-               <div class="room-card-image" style="background-color: rgba(37, 120, 162, 0.8); height: 50%; width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 2%">
-                  <img alt="placeholder" src="
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAACWCAYAAACb3McZAAAAAXNSR0IArs4c6QAADZJJREFUeF7tnGeP3TgSReWccxznbNj+///CXw3HmXHOOWcvzgPYYHMkkaz31GwuL4HFYtziY/FUXbIYpDVXr17906mIgAj0ElgjgSgyRGCYgASi6BCBEQISiMJDBCQQxYAI2AhoBrFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBBYmkA0bNnSHDh3qdu3a1W3cuLFbu3btkkW/f//uvn//3r1796579uxZ9+PHjyxr9+7d2x08eLDbvHlzt27duqW6v3796j59+tS9ePGie/v2bdZv8vC2bdtmv7tz587Z765Zs2b2G87eV69edc+fP5/9dysFv128eLHbunXrzE///vtv9+HDh6TuU/fSpUszP+WWr1+/dteuXYtWmyoWhhpeiECOHDkyCzQ/eIca/PnzZ/f06dOZUGIF0Z08eXIWwC54++r8+fOne//+fXfv3r1k8aXa/O3bt+7hw4cmAcb6txr/fvTo0dlAB+9cgTA4njp1qlu/fn1212ICmTIWxoydWyAAQdVjARwaQEC/fPmyu3///qBtjEKIY/v27cmwP378OBMJsMfKiRMnuv379yfbTKAgktevXyfbUuODu3fvnjF3AZ4rkAMHDnTHjh1blj2kchgT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
-">
-               </div>
-
-               <div class="room-card-desc" style="background-color: rgba(37, 120, 162, 0.8); height: 20%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <p>Sala pequeña para público reducido. !Disfruta de tus películas en la pantalla grande!</p>
-               </div>
-
-               <div class="room-card-button" style="background-color: rgba(37, 120, 162, 0.8); height: 8%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <button><a href="/reservas.html">Reservar</a></button>
-               </div>
-            </article>
-
-            <article class="room-card" style="background-color: rgba(56, 165, 219, 0.8); height: 75%; width: 30%; display: flex; align-items: center; flex-direction: column;">
-
-               <div class="room-card-title" style="background-color: rgba(37, 120, 162, 0.8); height: 15%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%;">
-                  <h2>Sala 2</h2>
-               </div>
-
-               <div class="room-card-image" style="background-color: rgba(37, 120, 162, 0.8); height: 50%; width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 2%">
-                  <img alt="placeholder" src="
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAACWCAYAAACb3McZAAAAAXNSR0IArs4c6QAADZJJREFUeF7tnGeP3TgSReWccxznbNj+///CXw3HmXHOOWcvzgPYYHMkkaz31GwuL4HFYtziY/FUXbIYpDVXr17906mIgAj0ElgjgSgyRGCYgASi6BCBEQISiMJDBCQQxYAI2AhoBrFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBBYmkA0bNnSHDh3qdu3a1W3cuLFbu3btkkW/f//uvn//3r1796579uxZ9+PHjyxr9+7d2x08eLDbvHlzt27duqW6v3796j59+tS9ePGie/v2bdZv8vC2bdtmv7tz587Z765Zs2b2G87eV69edc+fP5/9dysFv128eLHbunXrzE///vtv9+HDh6TuU/fSpUszP+WWr1+/dteuXYtWmyoWhhpeiECOHDkyCzQ/eIca/PnzZ/f06dOZUGIF0Z08eXIWwC54++r8+fOne//+fXfv3r1k8aXa/O3bt+7hw4cmAcb6txr/fvTo0dlAB+9cgTA4njp1qlu/fn1212ICmTIWxoydWyAAQdVjARwaQEC/fPmyu3///qBtjEKIY/v27cmwP378OBMJsMfKiRMnuv379yfbTKAgktevXyfbUuODu3fvnjF3AZ4rkAMHDnTHjh1blj2kchgTyJSxELNvLoEwCh8+fHhZoDHivnnzpiM9odNM1Qho3759y0YW0qNHjx7N0qO+gvCo4wqiIo3ieaZ8ZhUcwqjli5N27969O9hv6jBK+rPd58+fZ6kUdpMeIp7Q3i9fvnT//PNPVHwx4Kv17/Bk4Ni0adOSibkCoT58KfiLAYvUOqXQFvGwkrGQYpdZIIA8d+7csnyTNOfvv//uzdkZBc6cOdNt2bJlyS4C8+bNm/95ngBlJHJBPCYm0oG//vpr2bPMIgR7WLD57Nmzy2wYEtSOHTtmAePn04hzbNZLAb4an+nrK3bmCuT8+fOzgYuCz2A176w7VSyk+sEsEGYOZhA3ejNbII6x9AZ4zAzkkxQWv6Qu4SyC8JgZXIkFpj9yUYfNgDt37vyHQWjzkEBdxT179sxSDidURkNmETYG/l8KszuDkfOJ369cgVy+fHlp8IEV8QDjecpUsZBqk1kgjMTkrG46JUUh2GOFWYTAc4W1CCO+K4xmp0+fXnJYipPYjeJ3SY8oQ4F84cKFjt93NrNZ8Pjx41GTfQeRNvA89Wov7DiRajJCux1H+kdxg14Ke8chHPwYRG7cuDEXpiljIdUws0D80SJnOg3XLaRCjMqukDLxjHMa641bt25F++MLlpmJQPZ3ylgL8YwTUarzQ3tYBzEy1lyYNZhN/XQXZgxWBLpLK1MZwYI1GzO581tsLZjCb6pYSGnbPWMSCGCPHz8+W4Az2iCQ1P3ymEDCxXksvXIdIU1gq9mNfqGDQgcy9V+/fj3KKty6JIWkXu7ZCKMhfXMCpWEWsbdv3x79LWZTAtoVgpZNCNZ71nLlypVlays2VpgVEYj/txyB+PyZiZ48eTL73zxlqljIsckkkJwGwmdjKZafBvXNBENth1uM4cwTCjN1JmBhz+LT7e7kBE1oK6M2Gwp+SjOWmobPw4OdHurMU5wICGRmcFJjd3hrFYjvVwZM0mYGAwYm2Pl9pi0Eziw/dmg8VSzksFtRgYRrhb5Fuu8g/g7olJ0QRlkW1M4R4b46fyPfdiVc+4xBs9rU95vhADE0I/TNOItIW7CJ027aJQUNT8mtAuE3ySgo/DYHwn4K18cidmhs5R6LhVUrkDBICWJ2m5jiKfOM1uGCLkyF/MBk5ExZoDuQ4UjG9iXBaink96yF/O1jghQOLm1D5Dzjtkxph3MY1j6OlaXtlDoWgXCYC9++nbBYm0OHxlPGQswm/+8rNoOEB3R9QWrZtXCdidW17GD1CSRXXH3O6GPBaO4OyvzrHtRnpGUmtdw3ywkGnrUIhBGbBXp41QhRM1OTxjGrsOvJs6zr/Lt6Kx0LOUxWRCDhFiAGhqMm/xYL8rGOxequJoHQj3ABytY0i2+CzL/uQfD44slxruVZi0DC9V3M5r6DyXBrPubPeWIhh8vkAukTx1jenXsGUuMM4tLJ8FSfA07SFJfL8xyLWXa6VqpYBMLGA7OiuxEdu2dHX8J7X6GomhAIEJh6/dx07OLflFBW2wxCkIQn9aEIWG+wNoldvlykeCwCsbYfbmH7W+9TxkKOvZPNIIwoTL3+1efYrdgpoaxGgeCo8PzGOS92mTPHyTnPrqRA2ALmPM2tXYgPDo05H5oyFnJ4TCIQhMEpqL8Qo/Ps/owtNMMXbnLOHGK7WH7On7vQXuQuVuicvh0rnsnZhs5xeOzZlRRI6DP/RsaUsRBj4P99oQKhU4wIjAz+FXRSBcSRcvo71d73ajkH6XNOeCGPZ4YuXOY41/LsSgok3MoNz72mioUcLgsTCOsMRml/7x5DuLTG7kxqHh2O1n23ffs6mHuSHt4BG4I2z358iiP63qmhXu4sl9JWyjMrKZCxGQRbp4qFFA7umYUIhEMvxMFJuV8YBckpc+4t+SM9QZJ6SzjM5cMUJdyrT71t2ncXK+Xd6RQn9J2W+/UWce8qxQ7/GYtAyBwYGPl/MofUQ9SQbZhSTxULOUzmFkjfi1AENpD8a+ypRllvz8bu7YS3eVPfV7De4Yr1t2/t4VJQfxYeewkt1obl77kCCQeeHFH3vZ/jXyCdKhZyuMwlkD4nM1sw6g+9PhkzLpx2U15SCu94DS3uw52slHc7wvdBcq6ojPU1PC13gUUd/6Wy2KFbjGfu33MFEg48Oe/M8PUU/5sD4c3tKWMhlctcAglPgxEHATTvNedw0Rrb0QkX4KlvFMbuN4XbkCliTQEfHp6GIqjtqknorxhXGIUz89B1mqliIcVPPGMWSOw+UaoBfc+F7yGPCY9TXKZqt6XMViELe0QVlr530ofWSX0fMVjEbVrs5Pq8P3KGaRTPEBju7Uf6kfLuyDzMXd3cGYR6ob/4NzZB2JzpW3/y3g4C8e9ucWObd4rCMlUspLIyCcT/uJhriNEVJ7rXNlMNYLTp+0ZWeC2c3yWYmYYJqKGvmgyBdvbgHEZo/4wGG/hdBDD0VZOUd+5T+hy+Pz+Us4dXMfjt1JfHUuwYesYiEJcW+l+h4d/Y3meggiv9dF+3Qfj+MUDsizFTxUIKJ5NA5vn+UWjU0Cu1fYv/WIdSv4uV+y2v2A2AmF3u72HKFltfhDtzzI4PHjxI3iVKtct/ziqQoQPPmA0pZ2RTxkLMPpNAwpw/1sjY38feOQcMB4/hiBP+nuXLiu5AM/Y1yEV9WbHPyX03mv2+9c3UsdF2Hl9Q1yoQ6g4dFPfZhM/oP4JPOSObMhbGmJkE4u8GzeuQlI8yjH2PFbjsmqW8dRjaGvs2L9di2HDIOccZ4hFuaKRuh/ZdaFzEWmjRKZb/e3Aly2Bg4y6e/7otsyCXEq3fU54qFoZ4mAQyryhUXwRqISCB1OIp2VmEgARSBLsarYWABFKLp2RnEQISSBHsarQWAhJILZ6SnUUISCBFsKvRWghIILV4SnYWISCBFMGuRmshIIHU4inZWYSABFIEuxqthYAEUounZGcRAhJIEexqtBYCEkgtnpKdRQhIIEWwq9FaCEggtXhKdhYhIIEUwa5GayEggdTiKdlZhIAEUgS7Gq2FgARSi6dkZxECEkgR7Gq0FgISSC2ekp1FCEggRbCr0VoISCC1eEp2FiEggRTBrkZrISCB1OIp2VmEgARSBLsarYWABFKLp2RnEQISSBHsarQWAhJILZ6SnUUISCBFsKvRWghIILV4SnYWISCBFMGuRmshIIHU4inZWYSABFIEuxqthYAEUounZGcRAhJIEexqtBYCEkgtnpKdRQhIIEWwq9FaCEggtXhKdhYhIIEUwa5GayEggdTiKdlZhIAEUgS7Gq2FgARSi6dkZxECEkgR7Gq0FgISSC2ekp1FCEggRbCr0VoISCC1eEp2FiEggRTBrkZrISCB1OIp2VmEgARSBLsarYWABFKLp2RnEQISSBHsarQWAhJILZ6SnUUISCBFsKvRWghIILV4SnYWISCBFMGuRmshIIHU4inZWYSABFIEuxqthYAEUounZGcRAhJIEexqtBYCEkgtnpKdRQhIIEWwq9FaCEggtXhKdhYh8D8DbwVNL9WHoAAAAABJRU5ErkJggg==
-">
-               </div>
-
-               <div class="room-card-desc" style="background-color: rgba(37, 120, 162, 0.8); height: 20%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <p>Sala grande con un mayor número de asientos, además de acceso con rampa para discapacitados. !Trae a familia, amigos y conocidos a disfrutar de una experiencia completa con sonido envolvente y 3D!</p>
-               </div>
-
-               <div class="room-card-button" style="background-color: rgba(37, 120, 162, 0.8); height: 8%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <button><a href="/reservas.html">Reservar</a></button>
-               </div>
-
-            </article>
-
-            <article class="room-card" style="background-color: rgba(56, 165, 219, 0.8); height: 75%; width: 30%; display: flex; align-items: center; flex-direction: column;">
-
-               <div class="room-card-title" style="background-color: rgba(37, 120, 162, 0.8); height: 15%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%;">
-                  <h2>Sala 3</h2>
-               </div>
-
-               <div class="room-card-image" style="background-color: rgba(37, 120, 162, 0.8); height: 50%; width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 2%">
-                  <img alt="placeholder" src="
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAACWCAYAAACb3McZAAAAAXNSR0IArs4c6QAADZJJREFUeF7tnGeP3TgSReWccxznbNj+///CXw3HmXHOOWcvzgPYYHMkkaz31GwuL4HFYtziY/FUXbIYpDVXr17906mIgAj0ElgjgSgyRGCYgASi6BCBEQISiMJDBCQQxYAI2AhoBrFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBCQQGzfVaoSABNKIo9VNGwEJxMZNtRohIIE04mh100ZAArFxU61GCEggjTha3bQRkEBs3FSrEQISSCOOVjdtBBYmkA0bNnSHDh3qdu3a1W3cuLFbu3btkkW/f//uvn//3r1796579uxZ9+PHjyxr9+7d2x08eLDbvHlzt27duqW6v3796j59+tS9ePGie/v2bdZv8vC2bdtmv7tz587Z765Zs2b2G87eV69edc+fP5/9dysFv128eLHbunXrzE///vtv9+HDh6TuU/fSpUszP+WWr1+/dteuXYtWmyoWhhpeiECOHDkyCzQ/eIca/PnzZ/f06dOZUGIF0Z08eXIWwC54++r8+fOne//+fXfv3r1k8aXa/O3bt+7hw4cmAcb6txr/fvTo0dlAB+9cgTA4njp1qlu/fn1212ICmTIWxoydWyAAQdVjARwaQEC/fPmyu3///qBtjEKIY/v27cmwP378OBMJsMfKiRMnuv379yfbTKAgktevXyfbUuODu3fvnjF3AZ4rkAMHDnTHjh1blj2kchgT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
-">
-               </div>
-
-               <div class="room-card-desc" style="background-color: rgba(37, 120, 162, 0.8); height: 20%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <p>Sala grande con asientos con reposapiernas reclinable y enchufes USB. !Disfruta de una experiencia premium y relajate mientras ves tu peli favorita!</p>
-               </div>
-
-               <div class="room-card-button" style="background-color: rgba(37, 120, 162, 0.8); height: 8%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; margin-bottom: 2%">
-                  <button><a href="/reservas.html">Reservar</a></button>
-               </div>
-
-            </article>
-         </div>
-
-         <!-- Tabla de información de salas -->
-          <div class="room-info-container" style="background-color: rgba(41, 155, 4, 0.8); height: 380px; width: 95%; display: flex; justify-content: space-evenly;">
-            <table class="room-info-table" style="background-color: rgba(54, 148, 96, 0.8); height: 95%; width: 95%; margin-top: 0; border: 1px ridge cyan; border-collapse: separate;">
-               <tr style="border: 1px ridge cyan;">
-                  <th style="border: 1px ridge cyan;"></th>
-                  <th style="border: 1px ridge cyan;">Sala 1</th>
-                  <th style="border: 1px ridge cyan;">Sala 2</th>
-                  <th style="border: 1px ridge cyan;">Sala 3</th>
-               </tr>
-               <tr style="border: 1px ridge cyan;">
-                  <td style="border: 1px ridge cyan;">Numero de asientos</td>
-                  <td style="border: 1px ridge cyan;">25</td>
-                  <td style="border: 1px ridge cyan;">60</td>
-                  <td style="border: 1px ridge cyan;">40</td>
-               </tr>
-               <tr style="border: 1px ridge cyan;">
-                  <td style="border: 1px ridge cyan;">Accesibilidad de discap.</td>
-                  <td style="border: 1px ridge cyan;">No</td>
-                  <td style="border: 1px ridge cyan;">Si</td>
-                  <td style="border: 1px ridge cyan;">Si</td>
-               </tr>
-               <tr style="border: 1px ridge cyan;">
-                  <td style="border: 1px ridge cyan;">Tipo de asientos</td>
-                  <td style="border: 1px ridge cyan;">Normal</td>
-                  <td style="border: 1px ridge cyan;">Normal</td>
-                  <td style="border: 1px ridge cyan;">Sofá reclinable</td>
-               </tr>
-               <tr style="border: 1px ridge cyan;">
-                  <td style="border: 1px ridge cyan;">USB en asiento</td>
-                  <td style="border: 1px ridge cyan;">No</td>
-                  <td style="border: 1px ridge cyan;">No</td>
-                  <td style="border: 1px ridge cyan;">Si</td>
-               </tr>
-               <tr style="border: 1px ridge cyan;">
-                  <td style="border: 1px ridge cyan;">Sonido envolvente y 3D</td>
-                  <td style="border: 1px ridge cyan;">No</td>
-                  <td style="border: 1px ridge cyan;">Si</td>
-                  <td style="border: 1px ridge cyan;">Si</td>
-               </tr>
-            </table>
-          </div>
-      </div>
+      
+      
 
       <!-- Construcción del pie de página -->
-      <footer class="footer-container" style="background-color: rgba(226, 121, 121, 0.8); height: 130px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
-         
-         <!-- Título -->
-         <div class="contact-title-container" style="background-color: rgba(197, 227, 77, 0.8); height: 25%; width: 100%; margin: 0; display: flex; align-items: center; justify-content: center;">
-            <h2 style="margin: 0; width: 250px; text-align: center;"> Contácta con nosotros </h2>
-         </div> 
-
-         <!-- Correos de contacto -->
-         <div class="contact-mails-container" style="background-color: rgba(135, 19, 77, 0.8); height: 25%; width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-            <a href="mailto:carlos.durangon@alum.uca.es" style="font-weight: bold;">carlos.durangon@alum.uca.es</a>
-            <a href="mailto:carralfernandez@alum.uca.es" style="font-weight: bold;">josejoaquin.carralfernandez@alum.uca.es</a>
+      <footer>
+         <p>Contacta con nosotros:</p>
+         <div class="contacto-info">
+            <p>josejoaquin.carralfernandez@alum.uca.es</p>
+            <p>Carlos.durangon@alum.uca.es</p>
          </div>
-
-         <!-- Copyright -->
-         <div class="copyright-container" style="background-color: rgba(144, 159, 239, 0.8); height: 35%; width: 100%; display: flex; align-items: center; justify-content: center;">
-            <p style="font-weight: bold;">&copy; 2025 MyCinema. Jose Joaquín Carral Fernández y Carlos Manuel Durán González. Todos los derechos reservados. Alumnos de la Universidad de Cádiz para la asignatura de Programación en Internet.</p>
-         </div>
+         <p>&copy; 2025 MyCinema José Joaquín Carral Fernández y Carlos Manuel Durán González- Todos los derechos reservados. Alumnos de la Universidad de Cádiz</p>
       </footer>
 
    </body>

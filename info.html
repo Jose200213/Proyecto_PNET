@@ -11,91 +11,33 @@
    <body style="margin: 0; display: flex; flex-direction: column;">
 
       <!-- Construcción del navegador -->
-      <header class="nav-container" style="background-color: rgba(113, 13, 18, 0.7); height: 100px; width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-
-         <!-- Contenedor del logo y nombre de la página -->
-         <div class="nav-webpage-container" style="background-color: rgba(179, 231, 67, 0.8); height: 100%; width: 300px; display: flex; align-items: center; justify-content: space-evenly; margin-left: 2%;">
-            <div class="nav-webpage-name" style="background-color: rgba(67, 231, 185, 0.8); height: 50%; width: 65%; text-align: end;">
-               <p>MyCinema</p>
-            </div>
-            <div class="nav-webpage-logo" style="background-color: rgba(67, 141, 231, 0.8); height: 75%; width: 30%; border-radius: 100px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-               <img alt="logo" src="
-data:image/png;base64,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
-">
+      <header>
+         <div class="logo-container">
+            <p>MyCinema</p>
+            <div class="logo">
+              <img src="img/logoWeb.webp" alt="MyCinema" width="100" height="100">
             </div>
          </div>
-
-         <!-- Contenedor de los enlaces a otras páginas -->
-         <div class="nav-proper-container" style="background-color: rgba(231, 193, 67, 0.8); height: 100%;width: 300px; margin-right: 2%;">
-
-            <nav class="nav" style="height: 100%; width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="bienvenida.html" class="nav-anchor-text">Inicio</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="salas.html" class="nav-anchor-text">Salas</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="reservas.html" class="nav-anchor-text">Reservas</a>
-               </div>
-
-               <div class="nav-anchor-container" style="background-color: rgba(231, 67, 217, 0.8); height: 100%; width: 20%; margin-top: 0; display: flex; align-items: center; justify-content: center;">
-                  <a href="info.html" class="nav-anchor-text">Info</a>
-               </div>
-            </nav>
-
-         </div> 
-
+         <nav>
+            <ul>
+               <li><a href="bienvenida.html">Inicio</a></li>
+               <li><a href="salas.html">Salas</a></li>
+               <li><a href="reservas.html">Reservas</a></li>
+               <li><a href="info.html">Info</a></li>
+            </ul>
+         </nav>
       </header>
 
-      <!-- Construcción del cuerpo de la bienvenida -->
-      <div class="welcome-container" style="background-color: rgba(156, 6, 6, 0.8); height: 480px; width: 100%; display: flex; justify-content: center; align-items: center;">
-
-         <!-- Apartado texto + video -->
-         <div style="height: 100%; width: 60%; background-color: rgba(130, 36, 174, 0.8); display: flex; flex-direction: column;">
-
-            <!-- Texto -->
-            <div style="height: 30%; width: 100%; background-color: rgba(202, 124, 238, 0.8); display: flex; justify-content: space-evenly; align-items: center; flex-direction: column;">
-               <h2 style="height: 36px; width: 98%; background-color: rgba(50, 228, 154, 0.8); text-align: center; margin: 0;">Planes futuros de la empresa</h2>
-               <p style="height: 80px; width: 98%; background-color: rgba(85, 198, 246, 0.8); text-align: center; margin: 0;">¡El futuro de MyCinema está lleno de proyectos y avances que se irán implementando con las semanas! Conseguir que más cines se asocien, carteleras más amplias, funcionalidades avanzadas... Mientras tanto, infórmate sobre nuestro primer socio: el Cine Yelmo de Bahía Sur, en San Fernando, Cádiz.</p>
-            </div>
-
-            <!-- Video -->
-            <div style="height: 70%; width: 100%; background-color: rgba(69, 4, 99, 0.8); display: flex; align-items: center; justify-content: center;">
-               
-               <iframe width="80%" height="100%" src="https://www.youtube.com/embed/hLq_NNVo-EU?si=2LXc6aBlGyDCgyof" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-               
-            </div>
-
-          </div>
-
-         <!-- Google Map -->
-         <div class="maps-container" style="display: flex; justify-content: center; align-items: center; height: 100%; width: 40%; background-color: rgba(50, 235, 176, 0.8);">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25667.402832643627!2d-6.247887825683633!3d36.47144129999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dcd859a362465%3A0x94f92b9afe2d892f!2sCine%20Yelmo%20Premium%20Bah%C3%ADa%20Sur!5e0!3m2!1ses!2ses!4v1739894706661!5m2!1ses!2ses" width="85%" height="90% style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-         </div>
-      </div>
+      
 
       <!-- Construcción del pie de página -->
-      <footer class="footer-container" style="background-color: rgba(226, 121, 121, 0.8); height: 130px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
-         
-         <!-- Título -->
-         <div class="contact-title-container" style="background-color: rgba(197, 227, 77, 0.8); height: 25%; width: 100%; margin: 0; display: flex; align-items: center; justify-content: center;">
-            <h2 style="margin: 0; width: 250px; text-align: center;"> Contácta con nosotros </h2>
-         </div> 
-
-         <!-- Correos de contacto -->
-         <div class="contact-mails-container" style="background-color: rgba(135, 19, 77, 0.8); height: 25%; width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-            <a href="mailto:carlos.durangon@alum.uca.es" style="font-weight: bold;">carlos.durangon@alum.uca.es</a>
-            <a href="" style="font-weight: bold;">holabuenastardes</a>
+      <footer>
+         <p>Contacta con nosotros:</p>
+         <div class="contacto-info">
+            <p>josejoaquin.carralfernandez@alum.uca.es</p>
+            <p>Carlos.durangon@alum.uca.es</p>
          </div>
-
-         <!-- Copyright -->
-         <div class="copyright-container" style="background-color: rgba(144, 159, 239, 0.8); height: 35%; width: 100%; display: flex; align-items: center; justify-content: center;">
-            <p style="font-weight: bold;">&copy; 2025 Jose y Carlos Manuel. Todos los derechos reservados. Alumnos de la Universidad de Cádiz para la asignatura de Programación en Internet.</p>
-         </div>
+         <p>&copy; 2025 MyCinema José Joaquín Carral Fernández y Carlos Manuel Durán González- Todos los derechos reservados. Alumnos de la Universidad de Cádiz</p>
       </footer>
 
    </body>
