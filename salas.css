@@ -125,9 +125,9 @@ header nav ul li a:hover {
          
       }
 
-         #yelmoBahia { background-image: url('img/Cine\ Yelmo\ BG.jpeg'); }
-         #callao { background-image: url('img/Cine\ Callao\ BG.jpeg'); }
-         #multicineAlAndalus { background-image: url('img/Multicine\ AlAndalus\ BG.jpeg'); }
+         #yelmoBahia { background-image: url('img/Cine-Yelmo-BG.jpeg'); }
+         #callao { background-image: url('img/Cine-Callao-BG.jpeg'); }
+         #multicineAlAndalus { background-image: url('img/Multicine-AlAndalus-BG.jpeg'); }
 
    .cinema-movie-display {
       height: 200px;

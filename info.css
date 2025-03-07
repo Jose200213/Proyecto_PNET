@@ -82,6 +82,152 @@ header nav ul li a:hover {
    transform: translate(-2px);
 }
 
+/* ---------- CUERPO DE PÁGINA ---------- */
+
+.partner-container {
+   width: 95%;
+   height: 320px;
+   margin: 20px auto;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   background-color: rgba(0, 0, 0, 0.65);
+   border-radius: 30px;
+   
+}
+
+   .partner-title {
+      font-weight: bold;
+      margin-top: 10px;
+      width: 100%;
+      height: 20%;
+      text-align: center;
+   }
+
+   .partner-logo-container {
+      background-color: #FFD700;
+      width: 100%;
+      height: 80%;
+
+      overflow: hidden;
+   }
+
+      .partner-logo {    
+         position: relative;
+      }
+
+      #yelmoLogo {top: 20px; left: 20px; width: 200px; height: 60px;}
+      #callaoLogo {top: 20px; left: 20px; width: 120px; height: 100px;}
+      #alandalusLogo {top: 20px; left: 20px; width: 200px; height: 140px;}
+
+.maps-body-container {
+   width: 100%;
+   height: 500px;
+
+   background-color: rgba(87, 204, 237, 0.46);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+   .maps-text-container {
+      width: 50%;
+      height: 100%;
+
+      background-color: rgba(244, 52, 52, 0.362);
+   }
+
+      .maps-text {
+         font-size: 1.3em;
+         color: #000;
+
+         width: 100%;
+         height: 65%;
+
+         background-color: rgba(218, 255, 55, 0.337);
+         margin-bottom: 20px;
+
+         text-align: center;
+      }
+
+      .maps-selection {
+         width: 100%;
+         height: 30%;
+
+         display: flex;
+         justify-content: center;
+      }
+
+         .maps-selection > select {
+            width: 200px;
+            height: 1.5em;
+
+            margin: 0 auto;
+         }
+
+         .maps-selection > button {
+            width: 50px;
+            height: 24px;
+
+            margin: 0 auto;
+         }
+
+   .maps-proper-container {
+      width: 50%;
+      height: 100%;
+
+      background-color: rgba(141, 248, 80, 0.403);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+.video-body-container {
+   width: 100%;
+   height: 500px;
+   
+   background-color: rgba(87, 204, 237, 0.46);
+   
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+   .video-proper-container {
+      width: 70%;
+      height: 100%;
+
+      background-color: rgba(141, 248, 80, 0.403);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .video-text-container {
+      width: 30%;
+      height: 100%;
+
+      background-color: rgba(244, 52, 52, 0.362);
+   }
+
+      .video-text {
+         font-size: 1.3em;
+         color: #000;
+
+         width: 100%;
+         height: 100%;
+
+         background-color: rgba(218, 255, 55, 0.337);
+         margin-bottom: 20px;
+
+         text-align: center;
+      }
+
 /* ---------- PIE DE PÁGINA ---------- */
 footer {
    background: rgba(0, 0, 0, 0.9);
@@ -101,4 +247,10 @@ footer .contacto-info{
    display: flex;
    justify-content: space-around;
    margin-bottom: 10px; /* Espacio entre los correos y el resto del footer */
+}
+
+/* ---------- EXTRAS ---------- */
+
+.hidden {
+   display: none;
 }
