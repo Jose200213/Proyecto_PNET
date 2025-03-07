@@ -210,3 +210,24 @@ header nav ul li a:hover {
     background: transparent;
     border: none;
 }
+
+/* ---------- PIE DE PÁGINA ---------- */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    padding: 25px 20px;
+    border-top: 2px solid #FFD700;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+footer .contacto-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}

@@ -9,7 +9,7 @@
 /* ---------- ESTILO GLOBAL ---------- */
 body {
    /* Gradiente vertical oscuro -> rojo */
-   background: linear-gradient(to bottom, #4B0000, #000000);
+   background: linear-gradient(to bottom, #4B0000, #472929);
    color: #fff;
    min-height: 100vh;
    display: flex;

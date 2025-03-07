@@ -7,18 +7,76 @@
 }
 
 /* ---------- ESTILO GLOBAL ---------- */
+/* Telón */
+/* Telón */
+.telon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    pointer-events: none; /* Evita la interacción con el telón */
+}
+
+.telon-izquierda, .telon-derecha {
+    width: 50%;
+    height: 100%;
+    background: url('img/telon.jpeg') no-repeat center center;
+    background-size: cover;
+    transition: transform 2s ease-in-out;
+}
+
+.telon-izquierda {
+    transform: translateX(0);
+}
+
+.telon-derecha {
+    transform: translateX(0);
+}
+
+.telon.open .telon-izquierda {
+    transform: translateX(-100%);
+}
+
+.telon.open .telon-derecha {
+    transform: translateX(100%);
+}
+
+.telon.hidden {
+    display: none; /* Oculta el telón */
+}
+
+/* Fondo de la sala de cine */
 body {
-    /* Gradiente vertical oscuro -> rojo */
-    background: linear-gradient(to bottom, #4B0000, #000000);
+    background: url('img/SaladeCine.JPEG') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(10px);
+    z-index: -1;
+}
 /* Enlaces por defecto */
 a {
-    color: #FFD700; /* Dorado */
+    color: #FFD700; /* Dorado para acentos importantes */
     text-decoration: none;
 }
 
@@ -38,7 +96,6 @@ header {
     z-index: 100;
 }
 
-/* Título MyCinema */
 header p {
     font-size: 1.7rem;
     font-weight: bold;
@@ -48,21 +105,19 @@ header p {
     margin-right: 10px;
 }
 
-/* Logo */
 header .logo img {
-    border: 2px solid #FFD700; /* Marco dorado para resaltar */
+    border: 2px solid #D4AF37; /* Dorado sutil */
     border-radius: 5px;
     width: 50px;
     height: 50px;
 }
 
-header .logo-container{
+header .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;    
 }
 
-/* Navegación */
 header nav ul {
     list-style: none;
     display: flex;
@@ -83,8 +138,6 @@ header nav ul li a:hover {
 }
 
 /* ---------- PÁGINA DE INICIO (INDEX) ---------- */
-
-/* Sección principal (hero) */
 .main-content {
     display: flex;
     gap: 30px;
@@ -92,7 +145,7 @@ header nav ul li a:hover {
     flex-grow: 1;
 }
 
-
+/* Sección Hero */
 .hero {
     flex: 2;
     display: flex;
@@ -143,40 +196,38 @@ header nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #FFC107; /* Un dorado un poco más claro */
+    background-color: #FFC107;
 }
 
-/* Imagen dentro del hero */
-.hero .imagen{
+/* Imagen del hero */
+.hero .imagen {
     flex: 1;
     max-width: 400px;
     min-width: 300px;
 }
 
 .hero .imagen img {
-    border: 3px solid #FFD700;
     border-radius: 15px;
     width: 100%;
     height: auto;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
-
 
 /* Sección de noticias (aside) */
 .noticias {
     flex: 1;
-    max-width: 350px;
+    max-width: 500px; /* Aumenta el ancho máximo */
     background: rgba(0, 0, 0, 0.6);
-    padding: 25px;
+    padding: 35px; /* Aumenta el padding */
     border: 2px solid #FFD700;
     border-radius: 15px;
     height: fit-content;
 }
 
 .noticias h3 {
-    font-size: 1.5rem;
+    font-size: 2.2rem; /* Aumenta el tamaño de la fuente */
     color: #FFD700;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Aumenta el margen inferior */
     text-align: center;
     position: relative;
     padding-bottom: 10px;
@@ -188,33 +239,163 @@ header nav ul li a:hover {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 100px; /* Aumenta el ancho de la línea */
     height: 2px;
     background: #FFD700;
 }
 
 .noticia {
+    display: flex;
     background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
+    padding: 25px; /* Aumenta el padding */
     border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s;
+    margin-bottom: 30px; /* Aumenta el margen inferior */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .noticia:hover {
-    transform: translateX(10px);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .noticia img {
-    width: 100%;
+    width: 150px; /* Aumenta el ancho de la imagen */
+    height: 150px; /* Aumenta el alto de la imagen */
     border-radius: 8px;
-    margin-bottom: 12px;
+    margin-right: 25px; /* Aumenta el margen derecho */
     border: 1px solid #FFD700;
+    object-fit: cover;
 }
 
-.noticia p {
-    font-size: 0.95rem;
-    line-height: 1.4;
+.noticia-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.noticia-texto h4 {
+    font-size: 1.6rem; /* Aumenta el tamaño de la fuente */
+    color: #FFD700;
+    margin-bottom: 15px; /* Aumenta el margen inferior */
+}
+
+.noticia-texto p {
+    font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+    line-height: 1.6; /* Aumenta la altura de línea */
+    color: #fff;
+}
+
+/* ---------- SECCIÓN DE CARTELERA ---------- */
+.seccion-cartelera {
+    padding: 40px 20px;
+    border-top: 2px solid #FFD700;
+}
+
+.cartelera {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cartelera h2 {
+    font-size: 4rem;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.cartelera h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: #FFD700;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding: 60px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4); /* Fondo sutil para las categorías */
+    
+}
+
+.categoria h3 {
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 80px;
+    text-align: left;
+    position: relative;
+    flex: 1;
+}
+
+.categoria h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: #D4AF37;
+}
+
+.peliculas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    flex: 2;
+}
+
+.pelicula {
+    width: calc(33.333% - 20px);
+    text-align: center;
+    position: relative;
+}
+
+.pelicula img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 100%;
+    height: 300px;
+    max-width: 200px;
+    max-height: 300px;
+    transition: opacity 0.3s, transform 0.3s; /* Añade transición para el zoom */
+}
+
+.pelicula button {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.pelicula:hover img {
+    opacity: 0.3;
+    transform: scale(1.05);
+}
+
+.pelicula:hover button {
+    display: block;
+}
+
+.pelicula button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* ---------- PIE DE PÁGINA ---------- */
@@ -232,8 +413,8 @@ footer p {
     opacity: 0.9;
 }
 
-footer .contacto-info{
+footer .contacto-info {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 10px; /* Espacio entre los correos y el resto del footer */
+    margin-bottom: 10px;
 }
