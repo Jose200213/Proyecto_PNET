@@ -9,7 +9,7 @@
 /* ---------- ESTILO GLOBAL ---------- */
 body {
    /* Gradiente vertical oscuro -> rojo */
-   background: linear-gradient(to bottom, #4B0000, #000000);
+   background:#4B0000;
    color: #fff;
    min-height: 100vh;
    display: flex;
@@ -104,104 +104,150 @@ header nav ul li a:hover {
       width: 100%;
       height: 20%;
       text-align: center;
+      border-bottom: 0.5px solid #FFD700;
+      padding-top: 10px;
    }
 
    .partner-logo-container {
-      background-color: #FFD700;
       width: 100%;
       height: 80%;
 
-      overflow: hidden;
+      display: flex;
+      justify-content: space-evenly;
    }
 
       .partner-logo {    
-         position: relative;
+         overflow: hidden;
+         margin: 20px;
       }
 
-      #yelmoLogo {top: 20px; left: 20px; width: 200px; height: 60px;}
-      #callaoLogo {top: 20px; left: 20px; width: 120px; height: 100px;}
-      #alandalusLogo {top: 20px; left: 20px; width: 200px; height: 140px;}
+      #yelmoLogo {margin-top: 40px; margin-bottom: 20px; width: 200px; height: 60px;}
+      #callaoLogo {margin-top: 120px; margin-bottom: 20px; width: 120px; height: 100px;}
+      #alandalusLogo {margin-top: 20px; margin-bottom: 20px; width: 200px; height: 140px;}
 
 .maps-body-container {
    width: 100%;
    height: 500px;
 
-   background-color: rgba(87, 204, 237, 0.46);
-
    display: flex;
    justify-content: center;
    align-items: center;
+
+   margin: 20px auto;
 }
 
    .maps-text-container {
-      width: 50%;
+      width: 45%;
       height: 100%;
 
-      background-color: rgba(244, 52, 52, 0.362);
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 50px 0 0 50px;
    }
 
       .maps-text {
          font-size: 1.3em;
-         color: #000;
+         color: #fff;
 
          width: 100%;
          height: 65%;
 
-         background-color: rgba(218, 255, 55, 0.337);
-         margin-bottom: 20px;
-
          text-align: center;
+         margin-top: 20px;
+         padding: 20px 20px 20px 20px;
       }
 
       .maps-selection {
          width: 100%;
-         height: 30%;
+         height: 100px;
 
          display: flex;
          justify-content: center;
+
+         margin-top: 20px;
       }
 
          .maps-selection > select {
-            width: 200px;
-            height: 1.5em;
+            width: 250px;
+            height: 32px;
+            margin-right: 20px;
 
-            margin: 0 auto;
+            background-color: #FFD700;
+            color: #000;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1em;
          }
+
+            .maps-selection > select option {
+               width: 250px;
+            height: 32px;
+            margin-right: 20px;
+
+            background-color: #FFD700;
+            color: #000;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1em;
+            }
 
          .maps-selection > button {
-            width: 50px;
-            height: 24px;
+            width: 100px;
+            height: 32px;
 
-            margin: 0 auto;
+            background-color: #FFD700;
+            color: #000;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1em;
          }
+        
+            .maps-selection > button:hover {
+               background-color: #FFC107; /* Un dorado un poco más claro */
+            }
 
    .maps-proper-container {
-      width: 50%;
+      width: 40%;
       height: 100%;
 
-      background-color: rgba(141, 248, 80, 0.403);
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 0 50px 50px 0;
 
       display: flex;
       justify-content: center;
       align-items: center;
    }
 
+      .maps-proper-container iframe {
+         border: 5px solid #FFD700;
+      }
+
 .video-body-container {
    width: 100%;
    height: 500px;
    
-   background-color: rgba(87, 204, 237, 0.46);
-   
    display: flex;
    justify-content: center;
    align-items: center;
+
+   margin: 20px auto;
 }
 
    .video-proper-container {
-      width: 70%;
+      width: 65%;
       height: 100%;
 
-      background-color: rgba(141, 248, 80, 0.403);
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 50px 0 0 50px;
 
       display: flex;
       justify-content: center;
@@ -209,45 +255,57 @@ header nav ul li a:hover {
    }
 
    .video-text-container {
-      width: 30%;
+      width: 25%;
       height: 100%;
 
-      background-color: rgba(244, 52, 52, 0.362);
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 0 50px 50px 0;
    }
 
       .video-text {
-         font-size: 1.3em;
-         color: #000;
+         font-size: 1.2em;
+         color: #fff;
 
          width: 100%;
-         height: 100%;
-
-         background-color: rgba(218, 255, 55, 0.337);
-         margin-bottom: 20px;
+         height: 90%;
+         margin-top: 20px;
 
          text-align: center;
+         padding: 20px 20px 20px 20px;
       }
 
 /* ---------- PIE DE PÁGINA ---------- */
 footer {
    background: rgba(0, 0, 0, 0.9);
    text-align: center;
-   padding: 25px 20px;
+   padding: 10px 5px;
    border-top: 2px solid #FFD700;
    margin-top: auto;
 }
 
-footer p {
-   margin: 8px 0;
-   font-size: 0.9rem;
-   opacity: 0.9;
-}
+   footer > h3 {
+      margin: 8px 0 15px 0;
+      font-size: 1.5em;
+      opacity: 0.9;
+      color: #FFD700;
+   }
 
-footer .contacto-info{
-   display: flex;
-   justify-content: space-around;
-   margin-bottom: 10px; /* Espacio entre los correos y el resto del footer */
-}
+   .contacto-info {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+   }
+
+      .contacto-info a {
+         font-size: 1.2em;
+         text-decoration: none;
+         color: #fff;
+      }
+
+   footer p {
+      font-size: 0.8em;
+      margin-top: 20px;
+   }
 
 /* ---------- EXTRAS ---------- */
 
