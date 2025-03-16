@@ -81,4 +81,29 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Por favor, completa todos los campos");
     }
   });
+
+
+  /* %%%%%%%%%% Usar variables de salas.html %%%%%%%%%% */
+  console.log(document.querySelectorAll(".resumen p"))
+  const infoCompra = document.querySelectorAll(".resumen p");
+
+  infoCompra.forEach(info => {
+  switch(info.getAttribute("alt")) {
+    case "Cine":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreCine");
+      break;
+
+    case "Pelicula":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombrePelicula");
+      break;
+
+    case "Sala":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreSala");
+      break;
+
+    case "Horario":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("horaPelicula");
+      break;
+  }
+  })
 });
