@@ -208,6 +208,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Evento del formulario de Pago (Paso 4)
   const formPago = document.getElementById("form-pago");
+
+  formPago.addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    // Validar que todos los campos requeridos estén completos
+    const inputs = formPago.querySelectorAll("input[required]");
+    let valid = true;
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        valid = false;
+      }
+    });
+
+    if (valid) {
+      alert("Has realizado la reserva correctamente");
+      // Aquí podrías limpiar el formulario o redirigir a otra página
+    } else {
+      alert("Por favor, completa todos los campos");
+    }
+  });
+
+
+  /* %%%%%%%%%% Usar variables de salas.html %%%%%%%%%% */
+  console.log(document.querySelectorAll(".resumen p"))
+  const infoCompra = document.querySelectorAll(".resumen p");
+
+  infoCompra.forEach(info => {
+  switch(info.getAttribute("alt")) {
+    case "Cine":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreCine");
+      break;
+
+    case "Pelicula":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombrePelicula");
+      break;
+
+    case "Sala":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreSala");
+      break;
+
+    case "Horario":
+      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("horaPelicula");
+      break;
+  }
+  })
   if (formPago) {
     formPago.addEventListener("submit", function(e) {
       e.preventDefault();
