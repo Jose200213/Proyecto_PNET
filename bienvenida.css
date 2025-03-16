@@ -141,7 +141,7 @@ header nav ul li a:hover {
 .main-content {
     display: flex;
     gap: 30px;
-    padding: 40px 20px;
+    padding: 10px 20px;
     flex-grow: 1;
     justify-content: space-between;
 }
@@ -150,20 +150,21 @@ header nav ul li a:hover {
 .hero {
     flex: 2;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 30px;
-    margin-right: 400px;
-    margin-left: 50px;
+
+
+    width: 80%;
 }
 
 .texto {
     flex: 1;
-    width: 1000px;
+    width: auto;
 }
 
 .texto > h2 {
-    font-size: 2.5rem;
-    width: 1000px;
+    font-size: 2em;
+    width: auto;
     margin-bottom: 20px;
     color: #FFD700;
     line-height: 1.2;
@@ -173,13 +174,13 @@ header nav ul li a:hover {
     color: #fff;
     font-style: italic;
     display: block;
-    font-size: 6.5rem;
+    font-size: 3em;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .texto > p {
     font-size: 1.1rem;
-    width: 1000px;
+    width: auto;
     line-height: 1.6;
     margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
@@ -187,7 +188,8 @@ header nav ul li a:hover {
 
 .botones {
     display: flex;
-    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -207,34 +209,34 @@ header nav ul li a:hover {
 
 /* Imagen del hero */
 .imagen {
-    max-width: 400px;
-    min-width: 300px;
+    width: auto;
 }
 
 .imagen > img {
     border-radius: 15px;
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 /* Sección de noticias (aside) */
 .noticias {
-    flex: 1;
-    max-width: 500px; /* Aumenta el ancho máximo */
+    width: auto; /* Aumenta el ancho máximo */
     background: rgba(0, 0, 0, 0.6);
-    padding: 35px; /* Aumenta el padding */
+    padding: 10px; /* Aumenta el padding */
     border: 2px solid #FFD700;
     border-radius: 15px;
-    height: fit-content;
+    height: auto;
 }
 
 .noticias h3 {
-    font-size: 2.2rem; /* Aumenta el tamaño de la fuente */
+    font-size: 2em; /* Aumenta el tamaño de la fuente */
     color: #FFD700;
-    margin-bottom: 30px; /* Aumenta el margen inferior */
+    margin-bottom: 10px; /* Aumenta el margen inferior */
     text-align: center;
     position: relative;
     padding-bottom: 10px;
+
+    width: 300px;
 }
 
 .noticias h3::after {
@@ -251,10 +253,15 @@ header nav ul li a:hover {
 .noticia {
     display: flex;
     background: rgba(255, 255, 255, 0.05);
-    padding: 25px; /* Aumenta el padding */
+    padding: 10px; /* Aumenta el padding */
     border-radius: 10px;
-    margin-bottom: 30px; /* Aumenta el margen inferior */
+    margin-bottom: 15px; /* Aumenta el margen inferior */
     transition: transform 0.3s, box-shadow 0.3s;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
 }
 
 .noticia:hover {
@@ -263,10 +270,10 @@ header nav ul li a:hover {
 }
 
 .noticia img {
-    width: 150px; /* Aumenta el ancho de la imagen */
-    height: 150px; /* Aumenta el alto de la imagen */
+    width: 100px; /* Aumenta el ancho de la imagen */
+    height: 130px; /* Aumenta el alto de la imagen */
     border-radius: 8px;
-    margin-right: 25px; /* Aumenta el margen derecho */
+    margin-right: 20px; /* Aumenta el margen derecho */
     border: 1px solid #FFD700;
     object-fit: cover;
 }
@@ -275,16 +282,18 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    width: 170px;
 }
 
 .noticia-texto h4 {
-    font-size: 1.6rem; /* Aumenta el tamaño de la fuente */
+    font-size: 1em; /* Aumenta el tamaño de la fuente */
     color: #FFD700;
     margin-bottom: 15px; /* Aumenta el margen inferior */
 }
 
 .noticia-texto p {
-    font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+    font-size: 0.8em; /* Aumenta el tamaño de la fuente */
     line-height: 1.6; /* Aumenta la altura de línea */
     color: #fff;
 }
@@ -371,7 +380,7 @@ header nav ul li a:hover {
 }
 
 .cartelera h2 {
-    font-size: 4rem;
+    font-size: 3em;
     color: #FFD700;
     text-align: center;
     margin-bottom: 40px;
@@ -385,7 +394,7 @@ header nav ul li a:hover {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 500px;
     height: 2px;
     background: #FFD700;
 }
@@ -423,15 +432,15 @@ header nav ul li a:hover {
 .peliculas {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    flex: 2;
+
+    justify-content: space-evenly;
 }
 
 .pelicula {
-    width: calc(33.333% - 20px);
+    width: calc(30% - 20px);
     text-align: center;
     position: relative;
+    margin: 15px;
 }
 
 .pelicula img {
@@ -524,41 +533,38 @@ footer p {
 
 /* RESPONSIVE DESIGN (MEDIA QUERIES) */
 @media (max-width: 1199px) {
-    .main-content {
-        flex-direction: column;
-        align-items: center;
-    }
     .hero {
-        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
+
+    .imagen {
+        display: none;
+    }
+
     .texto {
-        text-align: center;
+        height: auto;
+        width: auto;
+        margin: 200px 0;
     }
-    .texto > h2 {
-        font-size: 2rem;
-    }
-    .texto > h2 > span {
-        font-size: 4rem;
-    }
-    .texto > p {
-        font-size: 1rem;
-    }
-    .noticias {
-        max-width: 400px;
-    }
-    .noticias h3 {
-        font-size: 1.8rem;
-    }
-    .noticia img {
-        width: 100px;
-        height: 100px;
-    }
-    .noticia-texto h4 {
-        font-size: 1.4rem;
-    }
-    .noticia-texto p {
-        font-size: 1rem;
-    }
+}
+
+@media (max-width: 920px) {
+    .main-content { flex-direction: column; }
+
+    .noticias h3 { width: 100%; }
+
+    .noticia { width: 100%; justify-content: space-evenly;}
+
+    .noticia img { margin-right: 0;}
+
+    .noticia-texto { flex-direction: row; width: 70%; }
+
+    .noticia-texto h4 { font-size: 1.2em; text-align: center; width: 35%;}
+
+    .noticia-texto p { text-align: center; width: 60%;}
 }
 
 @media (max-width: 800px) {

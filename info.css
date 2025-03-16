@@ -254,6 +254,33 @@ header nav ul li a:hover {
       align-items: center;
    }
 
+      .video-slider {
+         color: #FFD700;
+         font-size: 3em;
+         padding: 0 15px;
+         height: 350px;
+
+         border: 3px solid #FFD700;
+         
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .video-slider:first-child {
+         border-right: none;
+         border-radius: 20px 0 0 20px;
+      }
+
+      .video {
+         border: 3px solid #FFD700;
+      }
+
+      .video-slider:last-child {
+         border-left: none;
+         border-radius: 0 20px 20px 0 ;
+      }
+
    .video-text-container {
       width: 25%;
       height: 100%;
@@ -393,6 +420,14 @@ footer {
       }
       
       .video {
+         margin: 20px 0 35px 0;
+      }
+
+      .video-slider:first-child {
+         margin: 20px 0 35px 0;
+      }
+
+      .video-slider:last-child {
          margin: 20px 0 35px 0;
       }
 }
