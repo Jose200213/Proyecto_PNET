@@ -36,20 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Definir los enlaces a los tráilers
             const trailers = {
-                "Película 1": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Película 2": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Película 3": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Película 4": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Película 5": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
+                "Mickey 17": "https://www.youtube.com/watch?v=tA1s65o_kYM",
+                "El dia que la tierra Explotó": "https://www.youtube.com/watch?v=BtHUWHXfDyU",
+                "Lee Miller": "https://www.youtube.com/watch?v=DmFYkiUAAA8",
+                "Presence": "https://www.youtube.com/watch?v=XfSNmYhV8Xc",
+                "Grand Tour": "https://www.youtube.com/watch?v=kMMuifpLS94",
                 "Capitán América": "https://www.youtube.com/watch?v=1pHDWnXmK7Y",
                 "A Complete Unknown": "https://www.youtube.com/watch?v=FdV-Cs5o8mc",
-                "Paddington 3: Aventura en la Selva": "https://www.youtube.com/watch?v=QDQJlGxy81g",
+                "Paddington 3: Aventura en la selva": "https://www.youtube.com/watch?v=W0p9jThOHEU",
                 "Flow: Un Mundo que Salvar": "https://www.youtube.com/watch?v=mkOgoiqNLMY",
-                "Vaiana 2": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Nosferatus": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
+                "Vaiana 2": "https://www.youtube.com/watch?v=O5lPAcMEKvE",
+                "Nosferatus": "https://www.youtube.com/watch?v=i7MM8_M4a8U",
                 "La Vida Ante Nosotros": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Alto Knights": "https://www.youtube.com/watch?v=2YJXP8CKrNE",
-                "Novocaine": "https://www.youtube.com/watch?v=2YJXP8CKrNE"
+                "Alto Knights": "https://www.youtube.com/watch?v=1aayuOp0AnE",
+                "Novocaine": "https://www.youtube.com/watch?v=99BLnkAlC1M"
             };
 
             // Crear el contenedor de detalle sin fondo ni borde extra (transparente)

@@ -387,9 +387,6 @@ header nav ul li a:hover {
 
 
 
-
-
-
 .zona-asientos {
     flex: 3;
     background-color: rgba(0, 0, 0, 0.65);
@@ -471,6 +468,34 @@ header nav ul li a:hover {
     background-color: #ffd700;
 }
 
+/* Asiento seleccionado */
+.asiento.selected {
+    outline: 3px solid #FFD700;  /* Por ejemplo, un contorno dorado */
+    transform: scale(1.1);
+}
+
+.asientos-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilo para el contenedor del resumen de asientos */
+.seat-summary {
+    display: block;       /* Asegura que se comporte como un bloque */
+    clear: both;          /* Limpia flotados si los hubiera */
+    text-align: center;   
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #FFD700;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+
 /* Botones de navegación vertical (fuera del contenedor de la leyenda) */
 .botones-vertical {
     margin-top: 30px;
@@ -479,6 +504,7 @@ header nav ul li a:hover {
     flex-direction: column;
     gap: 20px;
     align-self: center;
+    margin-top: -60px;
 }
 
 .botones-vertical button {

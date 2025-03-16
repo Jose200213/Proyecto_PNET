@@ -162,332 +162,335 @@
         <!-- Paso 3: Selección de Asientos -->
         <div class="paso-contenido" id="paso-3" style="display: none;">
             <h2>Paso 3: Asientos</h2>
-            
-            <div class="contenedor-paso3">
-                <!-- Columna izquierda: Leyenda -->
-                <div class="leyenda-lateral">
-                    <h3>LEYENDA ASIENTOS</h3>
-                    <div class="leyenda-item">
-                        <span class="asiento ejemplo-disponible"></span>
-                        <span>Disponible</span>
+            <div class="asientos-wrapper">
+                <div class="contenedor-paso3">
+                    <!-- Columna izquierda: Leyenda -->
+                    <div class="leyenda-lateral">
+                        <h3>LEYENDA ASIENTOS</h3>
+                        <div class="leyenda-item">
+                            <span class="asiento ejemplo-disponible"></span>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="leyenda-item">
+                            <span class="asiento ejemplo-ocupado"></span>
+                            <span>Ocupado</span>
+                        </div>
+                        <div class="leyenda-item">
+                            <span class="asiento ejemplo-movilidad"></span>
+                            <span>Mov. Reducida</span>
+                        </div>
                     </div>
-                    <div class="leyenda-item">
-                        <span class="asiento ejemplo-ocupado"></span>
-                        <span>Ocupado</span>
-                    </div>
-                    <div class="leyenda-item">
-                        <span class="asiento ejemplo-movilidad"></span>
-                        <span>Mov. Reducida</span>
+                
+                    <!-- Columna derecha: Grilla de Asientos -->
+                    <div class="zona-asientos">
+                        <h3>Selecciona tus asientos</h3>
+                        <div class="pantalla">Pantalla</div>
+                        <div class="grilla-asientos">
+                            <!-- Fila 1: Movilidad Reducida (todos de esta fila) -->
+                            <div class="fila">
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <div class="pasillo"></div>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                                <button class="asiento movilidad-reducida"></button>
+                            </div>
+                            <!-- Fila 2 -->
+                            <div class="fila">
+                                <button class="asiento disponible">B1</button>
+                                <button class="asiento disponible">B2</button>
+                                <button class="asiento ocupado">B3</button>
+                                <button class="asiento disponible">B4</button>
+                                <button class="asiento disponible">B5</button>
+                                <button class="asiento ocupado">B6</button>
+                                <button class="asiento disponible">B7</button>
+                                <button class="asiento disponible">B8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">B9</button>
+                                <button class="asiento ocupado">B10</button>
+                                <button class="asiento disponible">B11</button>
+                                <button class="asiento disponible">B12</button>
+                                <button class="asiento disponible">B13</button>
+                                <button class="asiento disponible">B14</button>
+                                <button class="asiento ocupado">B15</button>
+                                <button class="asiento disponible">B16</button>
+                            </div>
+                            <!-- Fila 3 -->
+                            <div class="fila">
+                                <button class="asiento disponible">C1</button>
+                                <button class="asiento ocupado">C2</button>
+                                <button class="asiento disponible">C3</button>
+                                <button class="asiento disponible">C4</button>
+                                <button class="asiento ocupado">C5</button>
+                                <button class="asiento disponible">C6</button>
+                                <button class="asiento disponible">C7</button>
+                                <button class="asiento disponible">C8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">C9</button>
+                                <button class="asiento disponible">C10</button>
+                                <button class="asiento ocupado">C11</button>
+                                <button class="asiento disponible">C12</button>
+                                <button class="asiento disponible">C13</button>
+                                <button class="asiento disponible">C14</button>
+                                <button class="asiento ocupado">C15</button>
+                                <button class="asiento disponible">C16</button>
+                            </div>
+                            <!-- Fila 4 -->
+                            <div class="fila">
+                                <button class="asiento disponible">D1</button>
+                                <button class="asiento disponible">D2</button>
+                                <button class="asiento disponible">D3</button>
+                                <button class="asiento ocupado">D4</button>
+                                <button class="asiento disponible">D5</button>
+                                <button class="asiento disponible">D6</button>
+                                <button class="asiento disponible">D7</button>
+                                <button class="asiento disponible">D8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">D9</button>
+                                <button class="asiento disponible">D10</button>
+                                <button class="asiento disponible">D11</button>
+                                <button class="asiento ocupado">D12</button>
+                                <button class="asiento disponible">D13</button>
+                                <button class="asiento disponible">D14</button>
+                                <button class="asiento disponible">D15</button>
+                                <button class="asiento disponible">D16</button>
+                            </div>
+                            <!-- Fila 5 -->
+                            <div class="fila">
+                                <button class="asiento disponible">E1</button>
+                                <button class="asiento ocupado">E2</button>
+                                <button class="asiento disponible">E3</button>
+                                <button class="asiento disponible">E4</button>
+                                <button class="asiento ocupado">E5</button>
+                                <button class="asiento disponible">E6</button>
+                                <button class="asiento disponible">E7</button>
+                                <button class="asiento disponible">E8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">E9</button>
+                                <button class="asiento disponible">E10</button>
+                                <button class="asiento ocupado">E11</button>
+                                <button class="asiento disponible">E12</button>
+                                <button class="asiento disponible">E13</button>
+                                <button class="asiento disponible">E14</button>
+                                <button class="asiento ocupado">E15</button>
+                                <button class="asiento disponible">E16</button>
+                            </div>
+                            <!-- Fila 6 -->
+                            <div class="fila">
+                                <button class="asiento disponible">F1</button>
+                                <button class="asiento disponible">F2</button>
+                                <button class="asiento ocupado">F3</button>
+                                <button class="asiento disponible">F4</button>
+                                <button class="asiento disponible">F5</button>
+                                <button class="asiento disponible">F6</button>
+                                <button class="asiento disponible">F7</button>
+                                <button class="asiento ocupado">F8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">F9</button>
+                                <button class="asiento disponible">F10</button>
+                                <button class="asiento disponible">F11</button>
+                                <button class="asiento ocupado">F12</button>
+                                <button class="asiento disponible">F13</button>
+                                <button class="asiento disponible">F14</button>
+                                <button class="asiento disponible">F15</button>
+                                <button class="asiento disponible">F16</button>
+                            </div>
+                            <!-- Fila 7 -->
+                            <div class="fila">
+                                <button class="asiento disponible">G1</button>
+                                <button class="asiento ocupado">G2</button>
+                                <button class="asiento disponible">G3</button>
+                                <button class="asiento disponible">G4</button>
+                                <button class="asiento disponible">G5</button>
+                                <button class="asiento disponible">G6</button>
+                                <button class="asiento ocupado">G7</button>
+                                <button class="asiento disponible">G8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">G9</button>
+                                <button class="asiento disponible">G10</button>
+                                <button class="asiento disponible">G11</button>
+                                <button class="asiento disponible">G12</button>
+                                <button class="asiento ocupado">G13</button>
+                                <button class="asiento disponible">G14</button>
+                                <button class="asiento disponible">G15</button>
+                                <button class="asiento disponible">G16</button>
+                            </div>
+                            <!-- Fila 8 -->
+                            <div class="fila">
+                                <button class="asiento disponible">H1</button>
+                                <button class="asiento disponible">H2</button>
+                                <button class="asiento ocupado">H3</button>
+                                <button class="asiento disponible">H4</button>
+                                <button class="asiento disponible">H5</button>
+                                <button class="asiento ocupado">H6</button>
+                                <button class="asiento disponible">H7</button>
+                                <button class="asiento disponible">H8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">H9</button>
+                                <button class="asiento disponible">H10</button>
+                                <button class="asiento disponible">H11</button>
+                                <button class="asiento ocupado">H12</button>
+                                <button class="asiento disponible">H13</button>
+                                <button class="asiento disponible">H14</button>
+                                <button class="asiento disponible">H15</button>
+                                <button class="asiento disponible">H16</button>
+                            </div>
+                            <!-- Fila 9 -->
+                            <div class="fila">
+                                <button class="asiento disponible">I1</button>
+                                <button class="asiento disponible">I2</button>
+                                <button class="asiento disponible">I3</button>
+                                <button class="asiento disponible">I4</button>
+                                <button class="asiento disponible">I5</button>
+                                <button class="asiento disponible">I6</button>
+                                <button class="asiento ocupado">I7</button>
+                                <button class="asiento disponible">I8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">I9</button>
+                                <button class="asiento disponible">I10</button>
+                                <button class="asiento ocupado">I11</button>
+                                <button class="asiento disponible">I12</button>
+                                <button class="asiento disponible">I13</button>
+                                <button class="asiento disponible">I14</button>
+                                <button class="asiento disponible">I15</button>
+                                <button class="asiento ocupado">I16</button>
+                            </div>
+                            <!-- Fila 10 -->
+                            <div class="fila">
+                                <button class="asiento disponible">J1</button>
+                                <button class="asiento disponible">J2</button>
+                                <button class="asiento disponible">J3</button>
+                                <button class="asiento disponible">J4</button>
+                                <button class="asiento disponible">J5</button>
+                                <button class="asiento disponible">J6</button>
+                                <button class="asiento disponible">J7</button>
+                                <button class="asiento disponible">J8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">J9</button>
+                                <button class="asiento disponible">J10</button>
+                                <button class="asiento disponible">J11</button>
+                                <button class="asiento disponible">J12</button>
+                                <button class="asiento disponible">J13</button>
+                                <button class="asiento disponible">J14</button>
+                                <button class="asiento disponible">J15</button>
+                                <button class="asiento disponible">J16</button>
+                            </div>
+                            <!-- Fila 11-->
+                            <div class="fila">
+                                <button class="asiento disponible">K1</button>
+                                <button class="asiento disponible">K2</button>
+                                <button class="asiento ocupado">K3</button>
+                                <button class="asiento ocupado">K4</button>
+                                <button class="asiento disponible">K5</button>
+                                <button class="asiento disponible">J6</button>
+                                <button class="asiento disponible">J7</button>
+                                <button class="asiento disponible">J8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">K9</button>
+                                <button class="asiento disponible">K10</button>
+                                <button class="asiento disponible">K11</button>
+                                <button class="asiento disponible">K12</button>
+                                <button class="asiento disponible">K13</button>
+                                <button class="asiento disponible">K14</button>
+                                <button class="asiento disponible">K15</button>
+                                <button class="asiento disponible">K16</button>
+                            </div>
+                            <!-- Fila 12 -->
+                            <div class="fila">
+                                <button class="asiento disponible">L1</button>
+                                <button class="asiento disponible">L2</button>
+                                <button class="asiento ocupado">L3</button>
+                                <button class="asiento disponible">L4</button>
+                                <button class="asiento disponible">L5</button>
+                                <button class="asiento disponible">L6</button>
+                                <button class="asiento disponible">L7</button>
+                                <button class="asiento disponible">L8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">L9</button>
+                                <button class="asiento disponible">L10</button>
+                                <button class="asiento disponible">L11</button>
+                                <button class="asiento disponible">L12</button>
+                                <button class="asiento disponible">L13</button>
+                                <button class="asiento disponible">L14</button>
+                                <button class="asiento disponible">L15</button>
+                                <button class="asiento disponible">L16</button>
+                            </div>
+                            <!-- Fila 13 -->
+                            <div class="fila">
+                                <button class="asiento disponible">M1</button>
+                                <button class="asiento disponible">M2</button>
+                                <button class="asiento disponible">M3</button>
+                                <button class="asiento disponible">M4</button>
+                                <button class="asiento disponible">M5</button>
+                                <button class="asiento disponible">M6</button>
+                                <button class="asiento disponible">M7</button>
+                                <button class="asiento disponible">M8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">M9</button>
+                                <button class="asiento disponible">M10</button>
+                                <button class="asiento disponible">M11</button>
+                                <button class="asiento disponible">M12</button>
+                                <button class="asiento ocupado">M13</button>
+                                <button class="asiento ocupado">M14</button>
+                                <button class="asiento disponible">M15</button>
+                                <button class="asiento disponible">M16</button>
+                            </div>
+                            <!-- Fila 14 -->
+                            <div class="fila">
+                                <button class="asiento disponible">N1</button>
+                                <button class="asiento disponible">N2</button>
+                                <button class="asiento ocupado">N3</button>
+                                <button class="asiento ocupado">N4</button>
+                                <button class="asiento ocupado">N5</button>
+                                <button class="asiento disponible">N6</button>
+                                <button class="asiento disponible">N7</button>
+                                <button class="asiento disponible">N8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">N9</button>
+                                <button class="asiento disponible">N10</button>
+                                <button class="asiento disponible">N11</button>
+                                <button class="asiento disponible">N12</button>
+                                <button class="asiento disponible">N13</button>
+                                <button class="asiento disponible">N14</button>
+                                <button class="asiento ocupado">N15</button>
+                                <button class="asiento ocupado">N16</button>
+                            </div>
+                            <!-- Fila 15 -->
+                            <div class="fila">
+                                <button class="asiento disponible">O1</button>
+                                <button class="asiento disponible">O2</button>
+                                <button class="asiento ocupado">O3</button>
+                                <button class="asiento disponible">O4</button>
+                                <button class="asiento disponible">O5</button>
+                                <button class="asiento disponible">O6</button>
+                                <button class="asiento disponible">O7</button>
+                                <button class="asiento disponible">O8</button>
+                                <div class="pasillo"></div>
+                                <button class="asiento disponible">O9</button>
+                                <button class="asiento disponible">O10</button>
+                                <button class="asiento disponible">011</button>
+                                <button class="asiento disponible">012</button>
+                                <button class="asiento ocupado">013</button>
+                                <button class="asiento ocupado">014</button>
+                                <button class="asiento ocupado">015</button>
+                                <button class="asiento ocupado">016</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            
-                <!-- Columna derecha: Grilla de Asientos -->
-                <div class="zona-asientos">
-                    <h3>Selecciona tus asientos</h3>
-                    <div class="pantalla">Pantalla</div>
-                    <div class="grilla-asientos">
-                        <!-- Fila 1: Movilidad Reducida (todos de esta fila) -->
-                        <div class="fila">
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <div class="pasillo"></div>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                            <button class="asiento movilidad-reducida"></button>
-                        </div>
-                        <!-- Fila 2 -->
-                        <div class="fila">
-                            <button class="asiento disponible">B1</button>
-                            <button class="asiento disponible">B2</button>
-                            <button class="asiento ocupado">B3</button>
-                            <button class="asiento disponible">B4</button>
-                            <button class="asiento disponible">B5</button>
-                            <button class="asiento ocupado">B6</button>
-                            <button class="asiento disponible">B7</button>
-                            <button class="asiento disponible">B8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">B9</button>
-                            <button class="asiento ocupado">B10</button>
-                            <button class="asiento disponible">B11</button>
-                            <button class="asiento disponible">B12</button>
-                            <button class="asiento disponible">B13</button>
-                            <button class="asiento disponible">B14</button>
-                            <button class="asiento ocupado">B15</button>
-                            <button class="asiento disponible">B16</button>
-                        </div>
-                        <!-- Fila 3 -->
-                        <div class="fila">
-                            <button class="asiento disponible">C1</button>
-                            <button class="asiento ocupado">C2</button>
-                            <button class="asiento disponible">C3</button>
-                            <button class="asiento disponible">C4</button>
-                            <button class="asiento ocupado">C5</button>
-                            <button class="asiento disponible">C6</button>
-                            <button class="asiento disponible">C7</button>
-                            <button class="asiento disponible">C8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">C9</button>
-                            <button class="asiento disponible">C10</button>
-                            <button class="asiento ocupado">C11</button>
-                            <button class="asiento disponible">C12</button>
-                            <button class="asiento disponible">C13</button>
-                            <button class="asiento disponible">C14</button>
-                            <button class="asiento ocupado">C15</button>
-                            <button class="asiento disponible">C16</button>
-                        </div>
-                        <!-- Fila 4 -->
-                        <div class="fila">
-                            <button class="asiento disponible">D1</button>
-                            <button class="asiento disponible">D2</button>
-                            <button class="asiento disponible">D3</button>
-                            <button class="asiento ocupado">D4</button>
-                            <button class="asiento disponible">D5</button>
-                            <button class="asiento disponible">D6</button>
-                            <button class="asiento disponible">D7</button>
-                            <button class="asiento disponible">D8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">D9</button>
-                            <button class="asiento disponible">D10</button>
-                            <button class="asiento disponible">D11</button>
-                            <button class="asiento ocupado">D12</button>
-                            <button class="asiento disponible">D13</button>
-                            <button class="asiento disponible">D14</button>
-                            <button class="asiento disponible">D15</button>
-                            <button class="asiento disponible">D16</button>
-                        </div>
-                        <!-- Fila 5 -->
-                        <div class="fila">
-                            <button class="asiento disponible">E1</button>
-                            <button class="asiento ocupado">E2</button>
-                            <button class="asiento disponible">E3</button>
-                            <button class="asiento disponible">E4</button>
-                            <button class="asiento ocupado">E5</button>
-                            <button class="asiento disponible">E6</button>
-                            <button class="asiento disponible">E7</button>
-                            <button class="asiento disponible">E8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">E9</button>
-                            <button class="asiento disponible">E10</button>
-                            <button class="asiento ocupado">E11</button>
-                            <button class="asiento disponible">E12</button>
-                            <button class="asiento disponible">E13</button>
-                            <button class="asiento disponible">E14</button>
-                            <button class="asiento ocupado">E15</button>
-                            <button class="asiento disponible">E16</button>
-                        </div>
-                        <!-- Fila 6 -->
-                        <div class="fila">
-                            <button class="asiento disponible">F1</button>
-                            <button class="asiento disponible">F2</button>
-                            <button class="asiento ocupado">F3</button>
-                            <button class="asiento disponible">F4</button>
-                            <button class="asiento disponible">F5</button>
-                            <button class="asiento disponible">F6</button>
-                            <button class="asiento disponible">F7</button>
-                            <button class="asiento ocupado">F8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">F9</button>
-                            <button class="asiento disponible">F10</button>
-                            <button class="asiento disponible">F11</button>
-                            <button class="asiento ocupado">F12</button>
-                            <button class="asiento disponible">F13</button>
-                            <button class="asiento disponible">F14</button>
-                            <button class="asiento disponible">F15</button>
-                            <button class="asiento disponible">F16</button>
-                        </div>
-                        <!-- Fila 7 -->
-                        <div class="fila">
-                            <button class="asiento disponible">G1</button>
-                            <button class="asiento ocupado">G2</button>
-                            <button class="asiento disponible">G3</button>
-                            <button class="asiento disponible">G4</button>
-                            <button class="asiento disponible">G5</button>
-                            <button class="asiento disponible">G6</button>
-                            <button class="asiento ocupado">G7</button>
-                            <button class="asiento disponible">G8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">G9</button>
-                            <button class="asiento disponible">G10</button>
-                            <button class="asiento disponible">G11</button>
-                            <button class="asiento disponible">G12</button>
-                            <button class="asiento ocupado">G13</button>
-                            <button class="asiento disponible">G14</button>
-                            <button class="asiento disponible">G15</button>
-                            <button class="asiento disponible">G16</button>
-                        </div>
-                        <!-- Fila 8 -->
-                        <div class="fila">
-                            <button class="asiento disponible">H1</button>
-                            <button class="asiento disponible">H2</button>
-                            <button class="asiento ocupado">H3</button>
-                            <button class="asiento disponible">H4</button>
-                            <button class="asiento disponible">H5</button>
-                            <button class="asiento ocupado">H6</button>
-                            <button class="asiento disponible">H7</button>
-                            <button class="asiento disponible">H8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">H9</button>
-                            <button class="asiento disponible">H10</button>
-                            <button class="asiento disponible">H11</button>
-                            <button class="asiento ocupado">H12</button>
-                            <button class="asiento disponible">H13</button>
-                            <button class="asiento disponible">H14</button>
-                            <button class="asiento disponible">H15</button>
-                            <button class="asiento disponible">H16</button>
-                        </div>
-                        <!-- Fila 9 -->
-                        <div class="fila">
-                            <button class="asiento disponible">I1</button>
-                            <button class="asiento disponible">I2</button>
-                            <button class="asiento disponible">I3</button>
-                            <button class="asiento disponible">I4</button>
-                            <button class="asiento disponible">I5</button>
-                            <button class="asiento disponible">I6</button>
-                            <button class="asiento ocupado">I7</button>
-                            <button class="asiento disponible">I8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">I9</button>
-                            <button class="asiento disponible">I10</button>
-                            <button class="asiento ocupado">I11</button>
-                            <button class="asiento disponible">I12</button>
-                            <button class="asiento disponible">I13</button>
-                            <button class="asiento disponible">I14</button>
-                            <button class="asiento disponible">I15</button>
-                            <button class="asiento ocupado">I16</button>
-                        </div>
-                        <!-- Fila 10 -->
-                        <div class="fila">
-                            <button class="asiento disponible">J1</button>
-                            <button class="asiento disponible">J2</button>
-                            <button class="asiento disponible">J3</button>
-                            <button class="asiento disponible">J4</button>
-                            <button class="asiento disponible">J5</button>
-                            <button class="asiento disponible">J6</button>
-                            <button class="asiento disponible">J7</button>
-                            <button class="asiento disponible">J8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">J9</button>
-                            <button class="asiento disponible">J10</button>
-                            <button class="asiento disponible">J11</button>
-                            <button class="asiento disponible">J12</button>
-                            <button class="asiento disponible">J13</button>
-                            <button class="asiento disponible">J14</button>
-                            <button class="asiento disponible">J15</button>
-                            <button class="asiento disponible">J16</button>
-                        </div>
-                        <!-- Fila 11-->
-                        <div class="fila">
-                            <button class="asiento disponible">K1</button>
-                            <button class="asiento disponible">K2</button>
-                            <button class="asiento ocupado">K3</button>
-                            <button class="asiento ocupado">K4</button>
-                            <button class="asiento disponible">K5</button>
-                            <button class="asiento disponible">J6</button>
-                            <button class="asiento disponible">J7</button>
-                            <button class="asiento disponible">J8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">K9</button>
-                            <button class="asiento disponible">K10</button>
-                            <button class="asiento disponible">K11</button>
-                            <button class="asiento disponible">K12</button>
-                            <button class="asiento disponible">K13</button>
-                            <button class="asiento disponible">K14</button>
-                            <button class="asiento disponible">K15</button>
-                            <button class="asiento disponible">K16</button>
-                        </div>
-                        <!-- Fila 12 -->
-                        <div class="fila">
-                            <button class="asiento disponible">L1</button>
-                            <button class="asiento disponible">L2</button>
-                            <button class="asiento ocupado">L3</button>
-                            <button class="asiento disponible">L4</button>
-                            <button class="asiento disponible">L5</button>
-                            <button class="asiento disponible">L6</button>
-                            <button class="asiento disponible">L7</button>
-                            <button class="asiento disponible">L8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">L9</button>
-                            <button class="asiento disponible">L10</button>
-                            <button class="asiento disponible">L11</button>
-                            <button class="asiento disponible">L12</button>
-                            <button class="asiento disponible">L13</button>
-                            <button class="asiento disponible">L14</button>
-                            <button class="asiento disponible">L15</button>
-                            <button class="asiento disponible">L16</button>
-                        </div>
-                        <!-- Fila 13 -->
-                        <div class="fila">
-                            <button class="asiento disponible">M1</button>
-                            <button class="asiento disponible">M2</button>
-                            <button class="asiento disponible">M3</button>
-                            <button class="asiento disponible">M4</button>
-                            <button class="asiento disponible">M5</button>
-                            <button class="asiento disponible">M6</button>
-                            <button class="asiento disponible">M7</button>
-                            <button class="asiento disponible">M8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">M9</button>
-                            <button class="asiento disponible">M10</button>
-                            <button class="asiento disponible">M11</button>
-                            <button class="asiento disponible">M12</button>
-                            <button class="asiento ocupado">M13</button>
-                            <button class="asiento ocupado">M14</button>
-                            <button class="asiento disponible">M15</button>
-                            <button class="asiento disponible">M16</button>
-                        </div>
-                        <!-- Fila 14 -->
-                        <div class="fila">
-                            <button class="asiento disponible">N1</button>
-                            <button class="asiento disponible">N2</button>
-                            <button class="asiento ocupado">N3</button>
-                            <button class="asiento ocupado">N4</button>
-                            <button class="asiento ocupado">N5</button>
-                            <button class="asiento disponible">N6</button>
-                            <button class="asiento disponible">N7</button>
-                            <button class="asiento disponible">N8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">N9</button>
-                            <button class="asiento disponible">N10</button>
-                            <button class="asiento disponible">N11</button>
-                            <button class="asiento disponible">N12</button>
-                            <button class="asiento disponible">N13</button>
-                            <button class="asiento disponible">N14</button>
-                            <button class="asiento ocupado">N15</button>
-                            <button class="asiento ocupado">N16</button>
-                        </div>
-                        <!-- Fila 15 -->
-                        <div class="fila">
-                            <button class="asiento disponible">O1</button>
-                            <button class="asiento disponible">O2</button>
-                            <button class="asiento ocupado">O3</button>
-                            <button class="asiento disponible">O4</button>
-                            <button class="asiento disponible">O5</button>
-                            <button class="asiento disponible">O6</button>
-                            <button class="asiento disponible">O7</button>
-                            <button class="asiento disponible">O8</button>
-                            <div class="pasillo"></div>
-                            <button class="asiento disponible">O9</button>
-                            <button class="asiento disponible">O10</button>
-                            <button class="asiento disponible">011</button>
-                            <button class="asiento disponible">012</button>
-                            <button class="asiento ocupado">013</button>
-                            <button class="asiento ocupado">014</button>
-                            <button class="asiento ocupado">015</button>
-                            <button class="asiento ocupado">016</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Contenedor para mostrar el resumen de asientos seleccionados -->
+                <div id="seat-summary" style="display:none;" class="seat-summary"></div>
             </div>
         
             <!-- Botones de navegación para Paso 3 (fuera del contenedor de leyenda) -->
