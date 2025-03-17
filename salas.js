@@ -50,33 +50,46 @@ document.addEventListener("click", (event) => {
 /* %%%%%%%%%%% Guardar selección de cine, película, sala y horario %%%%%%%%%%% */  
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* %%%%%%%%%%% Guardar selección de cine %%%%%%%%%%% */
   const cines = document.querySelectorAll(".cinema-banner");
+  const peliculas = document.querySelectorAll(".movie-img");
+  const horarios = document.querySelectorAll(".schedule");
 
+  /* %%%%%%%%%%% Interacciones con banner de cine %%%%%%%%%%% */
   cines.forEach(cine => {
+    /* Guardar selección de cine en click */
     cine.addEventListener("click", () => {
       const nombreCine = cine.getAttribute("id");
       sessionStorage.setItem("nombreCine", nombreCine);
     })
+
+    /* Abrir cartelera de cine en click */
+    cine.addEventListener("click", () => {
+      cine.nextElementSibling.classList.remove("hidden");
+    })
   })
 
-  /* %%%%%%%%%%% Guardar selección de película %%%%%%%%%%% */
-  const peliculas = document.querySelectorAll(".movie-img");
-
+  /* %%%%%%%%%%% Interacciones con carteleras %%%%%%%%%%% */
   peliculas.forEach(pelicula => {
+    /* Guardar selección de película */
     pelicula.addEventListener("click", () => {
       const nombrePelicula = pelicula.getAttribute("alt");
       sessionStorage.setItem("nombrePelicula", nombrePelicula);
       console.log("Guardado:", nombrePelicula);
     });
+
+    /* Abrir horario de pelicula en click */
+    pelicula.addEventListener("click", () => {
+      const cineActual = sessionStorage.getItem("nombreCine");
+      const peliculaActual = sessionStorage.getItem("nombrePelicula");
+      console.log("${peliculaActual} - ${cineActual}]");
+      const horarioPelicula = document.querySelector("div[alt='Horario - " + peliculaActual + " - " + cineActual + "']");
+      horarioPelicula.classList.remove("hidden");
+    })
   });
 
 
   /* %%%%%%%%%%% Guardar selección de sala y horario %%%%%%%%%%% */ 
-  const horarios = document.querySelectorAll(".schedule");
-
   horarios.forEach(horario => {
-    console.log(horario.textContent)
     horario.addEventListener("click", (e) => {
       e.preventDefault;
 
