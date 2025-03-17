@@ -40,6 +40,12 @@ function mostrarPaso(paso) {
   });
 }
 
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| MOSTRAR CAMPO INCOMPLETO 1 VEZ ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
 // Valida cada campo del formulario del Paso 2 usando expresiones regulares
 function validarFormulario() {
   const campos = [
@@ -75,7 +81,9 @@ function validarFormulario() {
   if (!valido) {
     alert("Corrige los siguientes errores:\n" + errores.join("\n"));
   }
-  return valido;
+
+  console.log(valido)
+  return !!valido;
 }
 
 // Devuelve el total de tickets (para controlar la selección de asientos)
@@ -127,9 +135,9 @@ function updateSeatSummary() {
   } else {
     summaryDiv.style.display = "block";
     // Obtenemos los datos del resumen de película, sala y horario (ajusta si es necesario)
-    const pelicula = sessionStorage.getItem("nombrePelicula")/*document.getElementById('resumen-pelicula') ? document.getElementById('resumen-pelicula').textContent : "Sin definir";*/
-    const sala = sessionStorage.getItem("nombreSala")/*document.getElementById('resumen-sala') ? document.getElementById('resumen-sala').textContent : "Sin definir";*/
-    const horario = sessionStorage.getItem("horaPelicula")/*document.getElementById('resumen-horario') ? document.getElementById('resumen-horario').textContent : "Sin definir";*/
+    const pelicula = sessionStorage.getItem("nombrePelicula") ? sessionStorage.getItem("nombrePelicula") : "Sin definir";
+    const sala = sessionStorage.getItem("nombreSala") ? sessionStorage.getItem("nombreSala") : "Sin definir";
+    const horario = sessionStorage.getItem("horaPelicula") ? sessionStorage.getItem("horaPelicula") : "Sin definir";
     const seatList = Array.from(selectedSeats)
       .map(seat => seat.textContent.trim())
       .join(", ");
@@ -184,18 +192,26 @@ document.addEventListener('DOMContentLoaded', () => {
     mostrarPaso(2);
   });
 
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                         ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                         ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| SOLUCIONAR ERROR PASO 2 ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                         ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                         ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+
   // Botones del Paso 2 (Info Personal)
   document.querySelector('#paso-2 .btn-anterior').addEventListener('click', () => {
     mostrarPaso(1);
   });
   document.querySelector('#paso-2 .btn-siguiente').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (!validarFormulario()) {
+    const formValido = validarFormulario();
+    console.log(formValido === true)
+    if (formValido === true) {
       // Si hay errores, se muestra el mensaje y se queda en el Paso 2
-      return;
+      mostrarPaso(3);
     }
     // Solo se avanza si la validación es correcta
-    mostrarPaso(3);
+    
   });
 
   // Botones del Paso 3 (Asientos)
@@ -209,26 +225,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // Evento del formulario de Pago (Paso 4)
   const formPago = document.getElementById("form-pago");
 
-  formPago.addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    // Validar que todos los campos requeridos estén completos
-    const inputs = formPago.querySelectorAll("input[required]");
-    let valid = true;
-    inputs.forEach(input => {
-      if (!input.value.trim()) {
-        valid = false;
+  if (formPago) {
+    formPago.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const inputs = formPago.querySelectorAll("input[required]");
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.border = "4px solid red";
+          valid = false;
+        } else {
+          input.style.border = "";
+        }
+      });
+      if (valid) {
+        alert("Has realizado la reserva correctamente");
+        // Aquí podrías limpiar el formulario o redirigir a otra página
+      } else {
+        alert("Por favor, completa todos los campos");
       }
     });
+  }
 
-    if (valid) {
-      alert("Has realizado la reserva correctamente");
-      // Aquí podrías limpiar el formulario o redirigir a otra página
-    } else {
-      alert("Por favor, completa todos los campos");
-    }
-  });
-
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| EXPRESIONES REGULARES PASO 4 ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
   /* %%%%%%%%%% Usar variables de salas.html %%%%%%%%%% */
   console.log(document.querySelectorAll(".resumen p"))
@@ -252,26 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
       info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("horaPelicula");
       break;
   }
-  })
-  if (formPago) {
-    formPago.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const inputs = formPago.querySelectorAll("input[required]");
-      let valid = true;
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          input.style.border = "4px solid red";
-          valid = false;
-        } else {
-          input.style.border = "";
-        }
-      });
-      if (valid) {
-        alert("Has realizado la reserva correctamente");
-        // Aquí podrías limpiar el formulario o redirigir a otra página
-      } else {
-        alert("Por favor, completa todos los campos");
-      }
-    });
-  }
+
+  });
 });
