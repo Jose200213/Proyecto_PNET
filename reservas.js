@@ -127,9 +127,9 @@ function updateSeatSummary() {
   } else {
     summaryDiv.style.display = "block";
     // Obtenemos los datos del resumen de película, sala y horario (ajusta si es necesario)
-    const pelicula = document.getElementById('resumen-pelicula') ? document.getElementById('resumen-pelicula').textContent : "Sin definir";
-    const sala = document.getElementById('resumen-sala') ? document.getElementById('resumen-sala').textContent : "Sin definir";
-    const horario = document.getElementById('resumen-horario') ? document.getElementById('resumen-horario').textContent : "Sin definir";
+    const pelicula = sessionStorage.getItem("nombrePelicula")/*document.getElementById('resumen-pelicula') ? document.getElementById('resumen-pelicula').textContent : "Sin definir";*/
+    const sala = sessionStorage.getItem("nombreSala")/*document.getElementById('resumen-sala') ? document.getElementById('resumen-sala').textContent : "Sin definir";*/
+    const horario = sessionStorage.getItem("horaPelicula")/*document.getElementById('resumen-horario') ? document.getElementById('resumen-horario').textContent : "Sin definir";*/
     const seatList = Array.from(selectedSeats)
       .map(seat => seat.textContent.trim())
       .join(", ");

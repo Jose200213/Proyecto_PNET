@@ -1,3 +1,9 @@
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| MANEJO DE APARICIÓN DE CONTENEDORES ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
 document.addEventListener("DOMContentLoaded", function () {
     // Evento para los banners: al hacer clic, alterna la visibilidad del contenedor de películas
     const banners = document.querySelectorAll(".cinema-banner");
@@ -13,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Evento para las tarjetas de película: al hacer clic, alterna la visibilidad del contenedor de horarios
     const movieCards = document.querySelectorAll(".cinema-movie-card");
     movieCards.forEach(card => {
-        card.addEventListener("click", function () {
+      card.addEventListener("click", function () {
         // Se busca el contenedor de películas (padre de la tarjeta)
         const movieDisplay = card.closest(".cinema-movie-display");
         if (movieDisplay) {
@@ -23,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 roomDisplay.classList.toggle("hidden"); 
             }
         }
-    });
+      });
     });
     // Evento para el botón "Ver info de salas": alterna la visibilidad de la tabla de info
     const infoButtons = document.querySelectorAll(".cinema-room-seemore");
@@ -43,32 +49,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Los toggle lo que hacen en este caso es que si el elemento tiene la clase hidden se la quita y si no la tiene se la pone, 
 //de esta manera se puede mostrar y ocultar el elemento con un solo evento. Lo hacemos para los banners, las tarjetas de película y el botón "Ver info de salas".
-document.addEventListener("click", (event) => {
-  console.log("Elemento clicado:", event.target);
-});
 
-/* %%%%%%%%%%% Guardar selección de cine, película, sala y horario %%%%%%%%%%% */  
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| GUARDADO DE VARIABLES PARA FORMULARIO ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+  
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* Guardado en variables de etiquetas de interés */
   const cines = document.querySelectorAll(".cinema-banner");
   const peliculas = document.querySelectorAll(".movie-img");
   const horarios = document.querySelectorAll(".schedule");
 
-  /* %%%%%%%%%%% Interacciones con banner de cine %%%%%%%%%%% */
+  /* %%%%%%%%%%%%%%%%%%%%%%|| Interacciones con banner de cine ||%%%%%%%%%%%%%%%%%%%%%% */
   cines.forEach(cine => {
     /* Guardar selección de cine en click */
     cine.addEventListener("click", () => {
       const nombreCine = cine.getAttribute("id");
       sessionStorage.setItem("nombreCine", nombreCine);
     })
-
-    /* Abrir cartelera de cine en click */
-    cine.addEventListener("click", () => {
-      cine.nextElementSibling.classList.remove("hidden");
-    })
   })
 
-  /* %%%%%%%%%%% Interacciones con carteleras %%%%%%%%%%% */
+  /* %%%%%%%%%%%%%%%%%%%%%%|| Interacciones con carteleras ||%%%%%%%%%%%%%%%%%%%%%% */
   peliculas.forEach(pelicula => {
     /* Guardar selección de película */
     pelicula.addEventListener("click", () => {
@@ -76,31 +80,23 @@ document.addEventListener("DOMContentLoaded", () => {
       sessionStorage.setItem("nombrePelicula", nombrePelicula);
       console.log("Guardado:", nombrePelicula);
     });
-
-    /* Abrir horario de pelicula en click */
-    pelicula.addEventListener("click", () => {
-      const cineActual = sessionStorage.getItem("nombreCine");
-      const peliculaActual = sessionStorage.getItem("nombrePelicula");
-      console.log("${peliculaActual} - ${cineActual}]");
-      const horarioPelicula = document.querySelector("div[alt='Horario - " + peliculaActual + " - " + cineActual + "']");
-      horarioPelicula.classList.remove("hidden");
-    })
   });
 
 
-  /* %%%%%%%%%%% Guardar selección de sala y horario %%%%%%%%%%% */ 
+  /* %%%%%%%%%%%%%%%%%%%%%%|| Interacciones con sala y horario ||%%%%%%%%%%%%%%%%%%%%%% */ 
   horarios.forEach(horario => {
+    /* Guardar selección de sala y horario */
     horario.addEventListener("click", (e) => {
       e.preventDefault;
 
-      if(horario.parentElement.parentElement.parentElement.getAttribute("alt") == "Horario " + sessionStorage.getItem("nombrePelicula")) {
+      if(horario.parentElement.parentElement.parentElement.getAttribute("alt") == "Horario - " + sessionStorage.getItem("nombrePelicula") + " - " + sessionStorage.getItem("nombreCine")) {
         const nombreSala = horario.parentElement.parentElement.firstElementChild.textContent;
         const horaPelicula = horario.textContent;
         sessionStorage.setItem("nombreSala", nombreSala);
         sessionStorage.setItem("horaPelicula", horaPelicula);
       }
     })
-    
   })
+
 });
 
