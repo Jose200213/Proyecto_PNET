@@ -270,6 +270,7 @@ header nav ul li a:hover {
       .video-slider:first-child {
          border-right: none;
          border-radius: 20px 0 0 20px;
+         cursor: pointer;
       }
 
       .video {
@@ -278,7 +279,8 @@ header nav ul li a:hover {
 
       .video-slider:last-child {
          border-left: none;
-         border-radius: 0 20px 20px 0 ;
+         border-radius: 0 20px 20px 0;
+         cursor: pointer;
       }
 
    .video-text-container {

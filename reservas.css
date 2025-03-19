@@ -637,24 +637,7 @@ footer p {
 
 /* Para pantallas medianas (tablets, 768px - 1199px) */
 @media (max-width: 1199px) {
-    header {
-        padding: 10px 20px;
-        flex-direction: column; 
-        margin-bottom: 10px;
-    }
-    header p {
-        margin-bottom: 10px;
-    }
-    header nav {
-        width: 100%;
-    }
-    header nav ul {
-        justify-content: space-evenly;
-    }
-
-    .logo-container {
-        margin-bottom: 10px;
-    }
+    
 
     /* Reducir márgenes y padding en el contenedor principal */
     .reserva-container {
@@ -724,14 +707,18 @@ footer p {
     }
     
     /* Ajustar el contenedor de los pasos de reserva (Paso 3: Asientos) */
+    /* En el Paso 3 (asientos), apilar verticalmente los bloques */
     .contenedor-paso3 {
         flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
-    .zona-asientos,
     .leyenda-lateral {
-        width: 100%;
-        max-width: none;
+        width: 90%;
+        max-width: 350px;
+    }
+    .zona-asientos {
+        width: 90%;
     }
     /* Footer: Mostrar correos en columna */
     .contacto-info {
@@ -808,19 +795,7 @@ footer p {
         font-size: 1.2rem;
     }
     
-    /* En el Paso 3 (asientos), apilar verticalmente los bloques */
-    .contenedor-paso3 {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .leyenda-lateral {
-        width: 90%;
-        max-width: 350px;
-    }
-    .zona-asientos {
-        width: 90%;
-    }
+    
     
     /* Reducir tamaño de los asientos */
     .asiento {

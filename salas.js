@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
+
     // Evento para el botón "Ver info de salas": alterna la visibilidad de la tabla de info
     const infoButtons = document.querySelectorAll(".cinema-room-seemore");
     infoButtons.forEach(button => {
