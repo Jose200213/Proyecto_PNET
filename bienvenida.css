@@ -9,46 +9,7 @@
 /* ---------- ESTILO GLOBAL ---------- */
 /* Telón */
 /* Telón */
-.telon {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    background: none;
-    pointer-events: none; /* Evita la interacción con el telón */
-}
 
-.telon-izquierda, .telon-derecha {
-    width: 50%;
-    height: 100%;
-    background: url('img/telon.jpeg') no-repeat center center;
-    background-size: cover;
-    transition: transform 2s ease-in-out;
-}
-
-.telon-izquierda {
-    transform: translateX(0);
-}
-
-.telon-derecha {
-    transform: translateX(0);
-}
-
-.telon.open .telon-izquierda {
-    transform: translateX(-100%);
-}
-
-.telon.open .telon-derecha {
-    transform: translateX(100%);
-}
-
-.telon.hidden {
-    display: none; /* Oculta el telón */
-}
 
 /* Fondo de la sala de cine */
 body {
@@ -84,7 +45,11 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ---------- CABECERA (HEADER / NAVBAR) ---------- */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||          NAVEGADOR         ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 header {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 20px;
@@ -96,6 +61,7 @@ header {
     z-index: 100;
 }
 
+/* Título */
 header p {
     font-size: 1.7rem;
     font-weight: bold;
@@ -105,19 +71,21 @@ header p {
     margin-right: 10px;
 }
 
+/* %%%%%%%%%%%%%%%%%%%%|| Logo ||%%%%%%%%%%%%%%%%%%%% */
 header .logo img {
-    border: 2px solid #D4AF37; /* Dorado sutil */
+    border: 2px solid #FFD700; /* Marco dorado para resaltar */
     border-radius: 5px;
     width: 50px;
     height: 50px;
 }
 
-header .logo-container {
+header .logo-container{
     display: flex;
     align-items: center;
     gap: 10px;    
 }
 
+/* %%%%%%%%%%%%%%%%%%%%|| Navegación ||%%%%%%%%%%%%%%%%%%%% */
 header nav ul {
     list-style: none;
     display: flex;
@@ -137,7 +105,11 @@ header nav ul li a:hover {
     transform: translate(-2px);
 }
 
-/* ---------- PÁGINA DE INICIO (INDEX) ---------- */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||           CUERPO           ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 .main-content {
     display: flex;
     gap: 30px;
@@ -164,10 +136,9 @@ header nav ul li a:hover {
 
 .texto > h2 {
     font-size: 2em;
-    width: auto;
     margin-bottom: 20px;
     color: #FFD700;
-    line-height: 1.2;
+    padding-left: 20px;
 }
 
 .texto > h2 > span {
@@ -201,6 +172,8 @@ header nav ul li a:hover {
     font-weight: bold;
     transition: all 0.3s;
     border: 2px solid transparent;
+
+    margin: 5px 0;
 }
 
 .btn:hover {
@@ -373,13 +346,7 @@ header nav ul li a:hover {
     background-color: #4B0000;
 }
 
-
-.cartelera {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.cartelera h2 {
+.seccion-cartelera h2 {
     font-size: 3em;
     color: #FFD700;
     text-align: center;
@@ -388,7 +355,7 @@ header nav ul li a:hover {
     margin-top: 30px;
 }
 
-.cartelera h2::after {
+.seccion-cartelera h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -403,11 +370,11 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 60px;
+    margin: 0px auto 60px auto;
     padding: 60px;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.4); /* Fondo sutil para las categorías */
-    
+    width: 90%;
 }
 
 .categoria > h3 {
@@ -498,7 +465,11 @@ header nav ul li a:hover {
 }
 
 
-/* ---------- PIE DE PÁGINA ---------- */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||             PIE             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 footer {
     background: rgba(0, 0, 0, 0.9);
     text-align: center;
@@ -531,8 +502,162 @@ footer p {
     margin-top: 20px;
 }
 
-/* RESPONSIVE DESIGN (MEDIA QUERIES) */
-@media (max-width: 1199px) {
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||            UTILS            ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                             ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.hidden { display: none; }
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%||       ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%|| TELÓN ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%||       ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+.telon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    pointer-events: none; /* Evita la interacción con el telón */
+}
+
+.telon-izquierda, .telon-derecha {
+    width: 50%;
+    height: 100%;
+    background: url('img/telon.jpeg') no-repeat center center;
+    background-size: cover;
+    transition: transform 2s ease-in-out;
+}
+
+.telon-izquierda {
+    transform: translateX(0);
+}
+
+.telon-derecha {
+    transform: translateX(0);
+}
+
+.telon.open .telon-izquierda {
+    transform: translateX(-100%);
+}
+
+.telon.open .telon-derecha {
+    transform: translateX(100%);
+}
+
+.telon.hidden {
+    display: none; /* Oculta el telón */
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%||             ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%|| MEDIA QUERY ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%||             ||%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+@media (max-width: 1024px) {
+    .imagen { display: none; }
+}
+
+@media (max-width: 450px) {
+    header {
+        flex-direction: column;
+    }
+
+
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .hero {
+        width: 100%;
+    }
+
+    .texto > h2 {
+        font-size: 1.3em;
+    }
+
+    
+
+
+
+
+    .seccion-cartelera h2{
+        font-size: 2em;
+    }
+
+    .seccion-cartelera h2::after {
+        width: 80%;
+        height: 2px;
+    }
+
+    .categoria {
+        padding: 30px;
+    }
+
+    .peliculas {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pelicula {
+        width: 70%;
+        margin: 15px auto;
+    }
+
+    .categoria > h3 {
+        font-size: 2em;
+    }
+
+    .detalle-pelicula {
+        flex-direction: column;
+    }
+
+
+
+    .noticias h3 { width: 100%; }
+
+    .noticia { width: 100%; justify-content: space-evenly;}
+
+    .noticia-texto {  width: 65%;  }
+
+    .noticia-texto h4 { font-size: 1.2em; text-align: center; width: 100%;}
+
+    .noticia-texto p { text-align: center; width: 100%;}
+
+
+
+    .contacto-info {
+        flex-flow: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@media (max-width: 1199px) {
     .hero {
         display: flex;
         justify-content: center;
@@ -585,12 +710,12 @@ footer p {
     
     .logo-container{
         margin-bottom: 10px;
-    }
+    }*/
 
     /* Footer: Mostrar correos en columna */
-    .contacto-info {
+/*    .contacto-info {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-}
+}*/
