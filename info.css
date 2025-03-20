@@ -246,7 +246,6 @@ header nav ul li a:hover {
 
    .video-proper-container {
       width: 65%;
-      max-width: 780px;
       height: 100%;
 
       background-color: rgba(0, 0, 0, 0.65);
@@ -370,8 +369,27 @@ footer {
       margin-bottom: 10px;
    }
 
+
+
+   .partner-container {
+      height: auto;
+   }
+
+
+   .partner-logo-container {
+      flex-direction: column;
+      align-items: center;
+   }
+
+      #callaoLogo {margin-top: 20px; margin-bottom: 20px; width: 160px; height: 140px;}
+      #alandalusLogo {margin-top: 20px; margin-bottom: 30px;}
+
+
+
+
+
    .video {
-      width: 90%;
+      width: 60%;
    }
 
    .contacto-info {
