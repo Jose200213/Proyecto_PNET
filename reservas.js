@@ -40,14 +40,9 @@ function mostrarPaso(paso) {
   });
 }
 
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| MOSTRAR CAMPO INCOMPLETO 1 VEZ ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 // Valida cada campo del formulario del Paso 2 usando expresiones regulares
-function validarFormulario() {
+function validarFormularioPaso2() {
   const campos = [
     { id: "nombre", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El nombre debe tener al menos 2 letras." },
     { id: "apellido", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El apellido debe tener al menos 2 letras." },
@@ -59,31 +54,23 @@ function validarFormulario() {
     { id: "pais", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El país debe tener al menos 2 letras." }
   ];
 
-  let valido = true;
-  let errores = [];
-
-  campos.forEach(campo => {
+  for (const campo of campos) {
     const input = document.getElementById(campo.id);
     const valor = input.value.trim();
     if (valor === "") {
       input.style.border = "4px solid red";
-      errores.push("Completa todos los campos.");
-      valido = false;
+      alert(`El campo ${campo.id.replace("-", " ")} está vacío.`);
+      return false; // Detenemos la validación en el primer error
     } else if (!campo.regex.test(valor)) {
       input.style.border = "4px solid red";
-      errores.push(campo.error);
-      valido = false;
+      alert(campo.error);
+      return false; // Detenemos la validación en el primer error
     } else {
-      input.style.border = "";
+      input.style.border = ""; // Restablece el borde si el campo es válido
     }
-  });
-  
-  if (!valido) {
-    alert("Corrige los siguientes errores:\n" + errores.join("\n"));
   }
 
-  console.log(valido)
-  return !!valido;
+  return true; // Si todos los campos son válidos
 }
 
 // Devuelve el total de tickets (para controlar la selección de asientos)
@@ -178,6 +165,49 @@ function setupSeatSelection() {
   });
 }
 
+function validarFormularioPago() {
+  const campos = [
+    { 
+      id: "tarjeta-numero", 
+      regex: /^\d{4}-\d{4}-\d{4}-\d{4}$/, 
+      error: "El número de tarjeta debe tener el formato XXXX-XXXX-XXXX-XXXX." 
+    },
+    { 
+      id: "tarjeta-nombre", 
+      regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, 
+      error: "El nombre en la tarjeta debe tener al menos 2 letras." 
+    },
+    { 
+      id: "tarjeta-expiracion", 
+      regex: /^(0[1-9]|1[0-2])\/\d{2}$/, 
+      error: "La fecha de expiración debe tener el formato MM/AA." 
+    },
+    { 
+      id: "tarjeta-cvc", 
+      regex: /^\d{3}$/, 
+      error: "El CVC debe ser un número de 3 dígitos." 
+    }
+  ];
+
+  for (const campo of campos) {
+    const input = document.getElementById(campo.id);
+    const valor = input.value.trim();
+    if (valor === "") {
+      input.style.border = "4px solid red";
+      alert(`El campo ${campo.id.replace("tarjeta-", "").replace("-", " ")} está vacío.`);
+      return false; // Detenemos la validación en el primer error
+    } else if (!campo.regex.test(valor)) {
+      input.style.border = "4px solid red";
+      alert(campo.error);
+      return false; // Detenemos la validación en el primer error
+    } else {
+      input.style.border = ""; // Restablece el borde si el campo es válido
+    }
+  }
+
+  return true; // Si todos los campos son válidos
+}
+
 // Inicialización y eventos
 document.addEventListener('DOMContentLoaded', () => {
   calcularTotal();
@@ -203,15 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#paso-2 .btn-anterior').addEventListener('click', () => {
     mostrarPaso(1);
   });
+  // Botones del Paso 2 (Info Personal)
   document.querySelector('#paso-2 .btn-siguiente').addEventListener('click', (e) => {
-    const formValido = validarFormulario();
-    console.log(formValido === true)
-    if (formValido === true) {
-      // Si hay errores, se muestra el mensaje y se queda en el Paso 2
-      mostrarPaso(3);
+    e.preventDefault(); // Evita cualquier acción predeterminada del botón
+  
+    const formValido = validarFormularioPaso2(); // Llama a la función de validación
+    if (formValido) {
+      mostrarPaso(3); // Avanza al Paso 3 si el formulario es válido
     }
-    // Solo se avanza si la validación es correcta
-    
   });
 
   // Botones del Paso 3 (Asientos)
@@ -227,31 +256,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (formPago) {
     formPago.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const inputs = formPago.querySelectorAll("input[required]");
-      let valid = true;
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          input.style.border = "4px solid red";
-          valid = false;
-        } else {
-          input.style.border = "";
-        }
-      });
-      if (valid) {
+      e.preventDefault(); // Evita el envío del formulario si hay errores
+
+      const formValido = validarFormularioPago(); // Llama a la función de validación
+      if (formValido) {
         alert("Has realizado la reserva correctamente");
         // Aquí podrías limpiar el formulario o redirigir a otra página
-      } else {
-        alert("Por favor, completa todos los campos");
       }
     });
   }
-
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| EXPRESIONES REGULARES PASO 4 ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
   /* %%%%%%%%%% Usar variables de salas.html %%%%%%%%%% */
   console.log(document.querySelectorAll(".resumen p"))
