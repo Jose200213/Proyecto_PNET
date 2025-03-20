@@ -153,7 +153,7 @@ header nav ul li a:hover {
 
          text-align: center;
          margin-top: 20px;
-         padding: 20px 20px 20px 20px;
+         padding: 50px 20px 20px 20px;
       }
 
       .maps-selection {
@@ -216,8 +216,10 @@ header nav ul li a:hover {
             }
 
    .maps-proper-container {
-      width: 40%;
+      width: auto;
       height: 100%;
+
+      padding: 0 20px;
 
       background-color: rgba(0, 0, 0, 0.65);
       border-radius: 0 50px 50px 0;
@@ -244,6 +246,7 @@ header nav ul li a:hover {
 
    .video-proper-container {
       width: 65%;
+      max-width: 780px;
       height: 100%;
 
       background-color: rgba(0, 0, 0, 0.65);
@@ -300,7 +303,7 @@ header nav ul li a:hover {
          margin-top: 20px;
 
          text-align: center;
-         padding: 20px 20px 20px 20px;
+         padding: 65px 20px 20px 20px;
       }
 
 /* ---------- PIE DE PÁGINA ---------- */
@@ -388,6 +391,10 @@ footer {
          height: auto;
       }
 
+         .maps-text {
+            padding: 20px 20px 20px 20px;
+         }
+
          .maps-selection {
             height: 50px;
          }
@@ -414,6 +421,10 @@ footer {
          width: 95%;
          height: auto;
       }
+
+         .video-text {
+            padding: 20px 20px 20px 20px;
+         }
 
       .video-proper-container {
          border-radius: 0 0 50px 50px;

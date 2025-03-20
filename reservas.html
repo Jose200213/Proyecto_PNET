@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="reservas.css">
       <title>Reserva - MyCinema</title>
+      <script src="reservas.js"></script>
    </head>
 
    <body>
@@ -40,31 +41,35 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
-      <!-- Pasos -->
-      <div class="pasos">
-         <div class="pasos-container">
-               <div class="paso" id="paso-1-indicador">Paso 1 <br> Info Compra</div>
-               <div class="paso" id="paso-2-indicador">Paso 2 <br> Info Personal</div>
-               <div class="paso" id="paso-3-indicador">Paso 3 <br> Asientos</div>
-               <div class="paso" id="paso-4-indicador">Paso 4 <br> Pago</div>
-         </div>
+      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Navegación de formulario ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
+      <div class="pasos-container">
+         <div class="paso" id="paso-1-indicador">Paso 1 <br> Info Compra</div>
+         <div class="paso" id="paso-2-indicador">Paso 2 <br> Info Personal</div>
+         <div class="paso" id="paso-3-indicador">Paso 3 <br> Asientos</div>
+         <div class="paso" id="paso-4-indicador">Paso 4 <br> Pago</div>
       </div>
 
-      <!-- Contenedor Principal -->
+      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Formulario ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
       <div class="reserva-container">
-         <!-- Paso 1: Selección de entradas -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                               ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| Paso 1: Selección de entradas ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                               ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <div class="paso-contenido paso-1" id="paso-1">
-               <h2>Paso 1: Info Compra</h2>
-               <div class="entradas">
-                  <div class="entrada">
-                     <label for="entrada-nino">Entrada niño</label>
-                     <span class="precio">6$</span>
-                     <div class="entrada-control">
-                           <button type="button" onclick="cambiarCantidad('entrada-nino', -1)">-</button>
-                           <input type="number" id="entrada-nino" min="0" value="0" readonly>
-                           <button type="button" onclick="cambiarCantidad('entrada-nino', 1)">+</button>
-                     </div>
+            <h2>Paso 1: Info Compra</h2>
+            <div class="entradas">
+
+               <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada niño ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
+               <div class="entrada">
+                  <label for="entrada-nino">Entrada niño</label>
+                  <span class="precio">6$</span>
+                  <div class="entrada-control">
+                     <button type="button" onclick="cambiarCantidad('entrada-nino', -1)">-</button>
+                     <input type="number" id="entrada-nino" min="0" value="0" readonly>
+                     <button type="button" onclick="cambiarCantidad('entrada-nino', 1)">+</button>
                   </div>
+               </div>
+
+                  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada adulto ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                   <div class="entrada">
                      <label for="entrada-adulto">Entrada adulto</label>
                      <span class="precio">7.50$</span>
@@ -74,6 +79,8 @@
                            <button type="button" onclick="cambiarCantidad('entrada-adulto', 1)">+</button>
                      </div>
                   </div>
+
+                  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada VIP ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                   <div class="entrada">
                      <label for="entrada-vip">Entrada VIP</label>
                      <span class="precio">10$</span>
@@ -83,6 +90,8 @@
                            <button type="button" onclick="cambiarCantidad('entrada-vip', 1)">+</button>
                      </div>
                   </div>
+
+                  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada Premium ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                   <div class=" entrada">
                      <label for="entrada-premium">Entrada Premium</label>
                      <span class="precio">20$</span>
@@ -92,6 +101,8 @@
                            <button type="button" onclick="cambiarCantidad('entrada-premium', 1)">+</button>
                      </div>
                   </div>
+
+                  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada Ticket MyCinema ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                   <div class="entrada">
                      <label for="entrada-ticket">Entrada Ticket MyCinema</label>
                      <span class="precio">4$</span>
@@ -101,8 +112,10 @@
                            <button type="button" onclick="cambiarCantidad('entrada-ticket', 1)">+</button>
                      </div>
                   </div>
+
+                  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Entrada Carnet Joven ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                   <div class="entrada">
-                     <label for="entrada-joven">Entrada Carne Joven</label>
+                     <label for="entrada-joven">Entrada Carnet Joven</label>
                      <span class="precio">6.70$</span>
                      <div class="entrada-control">
                            <button type="button" onclick="cambiarCantidad('entrada-joven', -1)">-</button>
@@ -112,6 +125,7 @@
                   </div>
                </div>
 
+               <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Resumen de compra ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                <div class="resumen">
                   <p alt="Cine">Cine: ---</p>
                   <p alt="Pelicula">Película: ---</p>
@@ -124,14 +138,16 @@
                   <input type="text" id="total" readonly>
                </div>
 
-               <!-- Botones -->
+               <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Botones de navegación ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
                <div class="botones-reserva">
                   <button class="btn-anterior">Volver a Salas</button>
                   <button class="btn-siguiente" onclick="mostrarPaso(2)">Paso Siguiente</button>
                </div>
          </div>
 
-         <!-- Paso 2: Información Personal -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| Paso 2: Información Personal ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <div class="paso-contenido paso-2" id="paso-2" style="display: none;">
                <h2>Paso 2: Info Personal</h2>
                <form>
@@ -174,25 +190,27 @@
                </form>
          </div>
 
-         <!-- Paso 3: Selección de Asientos -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                               ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| Paso 3: Selección de Asientos ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                               ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <div class="paso-contenido" id="paso-3" style="display: none;">
-               <h2>Paso 3: Asientos</h2>
-               <div class="asientos-wrapper">
-                  <div class="contenedor-paso3">
+            <h2>Paso 3: Asientos</h2>
+            <div class="asientos-wrapper">
+               <div class="contenedor-paso3">
                      <!-- Columna izquierda: Leyenda -->
                      <div class="leyenda-lateral">
                            <h3>LEYENDA ASIENTOS</h3>
                            <div class="leyenda-item">
                               <span class="asiento ejemplo-disponible"></span>
-                              <span>Disponible</span>
+                              <span>DISPONIBLE</span>
                            </div>
                            <div class="leyenda-item">
                               <span class="asiento ejemplo-ocupado"></span>
-                              <span>Ocupado</span>
+                              <span>OCUPADO</span>
                            </div>
                            <div class="leyenda-item">
                               <span class="asiento ejemplo-movilidad"></span>
-                              <span>Mov. Reducida</span>
+                              <span>MOV. REDUCIDA</span>
                            </div>
                      </div>
                   
@@ -515,7 +533,9 @@
                </div>
          </div>
 
-         <!-- Paso 4: Pago -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| Paso 4: Pago ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+         <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||              ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <div class="paso-contenido" id="paso-4" style="display: none;">
                <h2>Paso 4: Pago</h2>
                <form id="form-pago">
@@ -545,7 +565,11 @@
          </div>
       </div>
 
-      <!-- %%%%%%%% Construcción del pie de página %%%%%%%% -->
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                  ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                  ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| PIE DE LA PÁGINA ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                  ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                  ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
       <footer>
          <h3>Contacta con nosotros:</h3>
          <div class="contacto-info">
@@ -555,6 +579,6 @@
          <p>&copy; 2025 MyCinema José Joaquín Carral Fernández y Carlos Manuel Durán González- Todos los derechos reservados. Alumnos de la Universidad de Cádiz</p>
       </footer>
 
-      <script src="reservas.js"></script>
+      
    </body>
-   </html>
+</html>
