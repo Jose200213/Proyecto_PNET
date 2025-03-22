@@ -3,50 +3,79 @@
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| MANEJO DE APARICIÓN DE CONTENEDORES ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                     ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Evento para los banners: al hacer clic, alterna la visibilidad del contenedor de películas
-    const banners = document.querySelectorAll(".cinema-banner");
-    banners.forEach(banner => {
-        banner.addEventListener("click", function () {
-        // Se asume que el contenedor de películas es el siguiente elemento después del banner
-        const movieDisplay = banner.nextElementSibling;
-        if (movieDisplay && movieDisplay.classList.contains("cinema-movie-display")) {
-            movieDisplay.classList.toggle("hidden");
+  // Función auxiliar que busca el siguiente hermano que tenga la clase "cinema-room-info"
+  function getNextRoomInfo(element) {
+    let next = element.nextElementSibling;
+    while (next && !next.classList.contains("cinema-room-info")) {
+      next = next.nextElementSibling;
+    }
+    return next;
+  }
+
+  // Evento para los banners: al hacer clic, alterna la visibilidad del contenedor de películas y oculta los horarios asociados.
+  const banners = document.querySelectorAll(".cinema-banner");
+  banners.forEach(banner => {
+    banner.addEventListener("click", function () {
+      const movieDisplay = banner.nextElementSibling;
+      if (movieDisplay && movieDisplay.classList.contains("cinema-movie-display")) {
+        // Alterna la visibilidad del contenedor de películas
+        movieDisplay.classList.toggle("hidden");
+        // Oculta todos los contenedores de horarios asociados a este banner
+        let sibling = movieDisplay.nextElementSibling;
+        while (sibling && sibling.classList.contains("cinema-room-display")) {
+          sibling.classList.add("hidden");
+          // Además, ocultamos la información asociada, si existe.
+          const infoContainer = getNextRoomInfo(sibling);
+          if (infoContainer) infoContainer.classList.add("hidden");
+          sibling = sibling.nextElementSibling;
         }
-        });
+      }
     });
-    // Evento para las tarjetas de película: al hacer clic, alterna la visibilidad del contenedor de horarios
-    const movieCards = document.querySelectorAll(".cinema-movie-card");
-    movieCards.forEach(card => {
+  });
+
+  // Para cada contenedor de películas en cada banner
+  const movieDisplays = document.querySelectorAll(".cinema-movie-display");
+  movieDisplays.forEach(movieDisplay => {
+    const cards = Array.from(movieDisplay.querySelectorAll(".cinema-movie-card"));
+    cards.forEach((card, localIndex) => {
       card.addEventListener("click", function () {
-        // Se busca el contenedor de películas (padre de la tarjeta)
-        const movieDisplay = card.closest(".cinema-movie-display");
-        if (movieDisplay) {
-          // Se asume que el contenedor de horarios es el siguiente elemento después del movie display
-            const roomDisplay = movieDisplay.nextElementSibling;
-            if (roomDisplay && roomDisplay.classList.contains("cinema-room-display")) {
-                roomDisplay.classList.toggle("hidden"); 
-            }
+        // Primero, ocultamos todos los contenedores de horarios asociados a este banner
+        let sibling = movieDisplay.nextElementSibling;
+        const scheduleContainers = [];
+        while (sibling && sibling.classList.contains("cinema-room-display")) {
+          scheduleContainers.push(sibling);
+          // Ocultamos la información asociada a cada horario
+          const infoContainer = getNextRoomInfo(sibling);
+          if (infoContainer) infoContainer.classList.add("hidden");
+          sibling = sibling.nextElementSibling;
+        }
+        scheduleContainers.forEach(container => container.classList.add("hidden"));
+        // Si existe un contenedor de horarios para la tarjeta clicada, lo mostramos.
+        if (localIndex < scheduleContainers.length) {
+          scheduleContainers[localIndex].classList.remove("hidden");
         }
       });
     });
+  });
 
-    // Evento para el botón "Ver info de salas": alterna la visibilidad de la tabla de info
-    const infoButtons = document.querySelectorAll(".cinema-room-seemore");
-    infoButtons.forEach(button => {
-        button.addEventListener("click", function () {
-        // Se asume que la tabla de info es el siguiente elemento después del contenedor de horarios
-        const roomDisplay = button.closest(".cinema-room-display");
-        if (roomDisplay) {
-            const roomInfo = roomDisplay.nextElementSibling;
-            if (roomInfo && roomInfo.classList.contains("cinema-room-info")) {
-            roomInfo.classList.toggle("hidden");
-            }
+  // Evento para cada botón "Ver info de salas": se alterna la visibilidad de la tabla de información correspondiente.
+  const infoButtons = document.querySelectorAll(".cinema-room-seemore");
+  infoButtons.forEach(button => {
+    button.addEventListener("click", function (event) {
+      event.stopPropagation(); // Evita que el clic se propague a otros manejadores
+      // Buscamos el contenedor de horarios (padre)
+      const roomDisplay = button.closest(".cinema-room-display");
+      if (roomDisplay) {
+        const roomInfo = getNextRoomInfo(roomDisplay);
+        if (roomInfo) {
+          roomInfo.classList.toggle("hidden");
         }
+      }
     });
-    });
+  });
 });
+
 
 //Los toggle lo que hacen en este caso es que si el elemento tiene la clase hidden se la quita y si no la tiene se la pone, 
 //de esta manera se puede mostrar y ocultar el elemento con un solo evento. Lo hacemos para los banners, las tarjetas de película y el botón "Ver info de salas".

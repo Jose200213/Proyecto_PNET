@@ -27,10 +27,10 @@
          <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Enlaces de navegación ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <nav>
             <ul>
-               <li><a href="bienvenida.html">Inicio</a></li>
-               <li><a href="salas.html">Salas</a></li>
-               <li><a href="reservas.html">Reservas</a></li>
-               <li><a href="info.html">Info</a></li>
+               <li><a href="bienvenida.html" aria-label="Ir a la pagina de inicio">Inicio</a></li>
+               <li><a href="salas.html" aria-label="Ir a la pagina de salas">Salas</a></li>
+               <li><a href="reservas.html" aria-label="Ir a la pagina de reservas">Reservas</a></li>
+               <li><a href="info.html" aria-label="Ir a la pagina de información">Info</a></li>
             </ul>
          </nav>
       </header>
@@ -217,30 +217,38 @@
                      <!-- Columna derecha: Grilla de Asientos -->
                      <div class="zona-asientos">
                            <h3>Selecciona tus asientos</h3>
+                           <!-- TENIAMOS PROBLEMA DE CONTRASTE EN EL DIV DE LA PANTALLA DEL CINE TENIAMOS EL COLOR
+                           #434040; Y ESTO SERIA PROBLEMA DE ACCESIBILIDAD YA QUE NO ES LEGIBLE Y DIFICULTA 
+                           ESPECIALMENTE A PERSONAS CON BAJA VISION. SEGUN LAS PAUTAS WCAG 2.1(CRITERIO 1.4.3) DICE QUE
+                           EL CONTRASTE MINIMO RECOMENDADO ES DE 4.5:1 PARA TEXTO NORMAL Y 3:1 PARA TEXTO GRANDE. ENTONCES
+                           NOSOTROS HEMOS CAMBIADO EL COLOR A UNO MAS LEGIBLE Y QUE TENGA MAS CONTRASTE QUE ES #cccccc -->
                            <div class="pantalla">Pantalla</div>
-                           <div class="grilla-asientos">
+                           <div class="grilla-asientos" role="grid" aria-label="Grilla de asientos">
                               <!-- Fila 1: Movilidad Reducida (todos de esta fila) -->
-                              <div class="fila">
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
+                              <!--Nota: Los botones de los asientos de movilidad reducida están vacíos visualmente para mantener un diseño limpio. 
+                              Sin embargo, se han añadido atributos aria-label para garantizar la accesibilidad, 
+                              permitiendo que los lectores de pantalla describan correctamente cada asiento. -->
+                              <div class="fila" role="row">
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A1"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A2"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A3"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A4"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A5"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A6"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A7"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A8"></button>
                                  <div class="pasillo"></div>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
-                                 <button class="asiento movilidad-reducida"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A9"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A10"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A11"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A12"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A13"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A14"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A15"></button>
+                                 <button class="asiento movilidad-reducida" aria-label="Asiento de movilidad reducida A16"></button>
                               </div>
                               <!-- Fila 2 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">B1</button>
                                  <button class="asiento disponible">B2</button>
                                  <button class="asiento ocupado">B3</button>
@@ -260,7 +268,7 @@
                                  <button class="asiento disponible">B16</button>
                               </div>
                               <!-- Fila 3 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">C1</button>
                                  <button class="asiento ocupado">C2</button>
                                  <button class="asiento disponible">C3</button>
@@ -280,7 +288,7 @@
                                  <button class="asiento disponible">C16</button>
                               </div>
                               <!-- Fila 4 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">D1</button>
                                  <button class="asiento disponible">D2</button>
                                  <button class="asiento disponible">D3</button>
@@ -300,7 +308,7 @@
                                  <button class="asiento disponible">D16</button>
                               </div>
                               <!-- Fila 5 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">E1</button>
                                  <button class="asiento ocupado">E2</button>
                                  <button class="asiento disponible">E3</button>
@@ -320,7 +328,7 @@
                                  <button class="asiento disponible">E16</button>
                               </div>
                               <!-- Fila 6 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">F1</button>
                                  <button class="asiento disponible">F2</button>
                                  <button class="asiento ocupado">F3</button>
@@ -340,7 +348,7 @@
                                  <button class="asiento disponible">F16</button>
                               </div>
                               <!-- Fila 7 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">G1</button>
                                  <button class="asiento ocupado">G2</button>
                                  <button class="asiento disponible">G3</button>
@@ -360,7 +368,7 @@
                                  <button class="asiento disponible">G16</button>
                               </div>
                               <!-- Fila 8 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">H1</button>
                                  <button class="asiento disponible">H2</button>
                                  <button class="asiento ocupado">H3</button>
@@ -380,7 +388,7 @@
                                  <button class="asiento disponible">H16</button>
                               </div>
                               <!-- Fila 9 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">I1</button>
                                  <button class="asiento disponible">I2</button>
                                  <button class="asiento disponible">I3</button>
@@ -400,7 +408,7 @@
                                  <button class="asiento ocupado">I16</button>
                               </div>
                               <!-- Fila 10 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">J1</button>
                                  <button class="asiento disponible">J2</button>
                                  <button class="asiento disponible">J3</button>
@@ -420,7 +428,7 @@
                                  <button class="asiento disponible">J16</button>
                               </div>
                               <!-- Fila 11-->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">K1</button>
                                  <button class="asiento disponible">K2</button>
                                  <button class="asiento ocupado">K3</button>
@@ -440,7 +448,7 @@
                                  <button class="asiento disponible">K16</button>
                               </div>
                               <!-- Fila 12 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">L1</button>
                                  <button class="asiento disponible">L2</button>
                                  <button class="asiento ocupado">L3</button>
@@ -460,7 +468,7 @@
                                  <button class="asiento disponible">L16</button>
                               </div>
                               <!-- Fila 13 -->
-                              <div class="fila">
+                              <div class="fila" role="row"> 
                                  <button class="asiento disponible">M1</button>
                                  <button class="asiento disponible">M2</button>
                                  <button class="asiento disponible">M3</button>
@@ -480,7 +488,7 @@
                                  <button class="asiento disponible">M16</button>
                               </div>
                               <!-- Fila 14 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">N1</button>
                                  <button class="asiento disponible">N2</button>
                                  <button class="asiento ocupado">N3</button>
@@ -500,7 +508,7 @@
                                  <button class="asiento ocupado">N16</button>
                               </div>
                               <!-- Fila 15 -->
-                              <div class="fila">
+                              <div class="fila" role="row">
                                  <button class="asiento disponible">O1</button>
                                  <button class="asiento disponible">O2</button>
                                  <button class="asiento ocupado">O3</button>

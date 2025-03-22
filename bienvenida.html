@@ -36,12 +36,12 @@
 
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Enlaces de navegación ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
             <nav>
-            <ul>
-                <li><a href="bienvenida.html">Inicio</a></li>
-                <li><a href="salas.html">Salas</a></li>
-                <li><a href="reservas.html">Reservas</a></li>
-                <li><a href="info.html">Info</a></li>
-            </ul>
+                <ul>
+                    <li><a href="bienvenida.html" aria-label="Ir a la pagina de inicio">Inicio</a></li>
+                    <li><a href="salas.html" aria-label="Ir a la pagina de salas">Salas</a></li>
+                    <li><a href="reservas.html" aria-label="Ir a la pagina de reservas">Reservas</a></li>
+                    <li><a href="info.html" aria-label="Ir a la pagina de información">Info</a></li>
+                </ul>
             </nav>
         </header>
         
@@ -70,8 +70,11 @@
                 </div>
 
                 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| Logo ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                <!-- SE HA PUESTO MEJORA DE ACCESIBILIDA PONIENDO EL ALT VACIO PARA LOS LECTORES DE PANTALLA LA IGNOREN
+                ESTO INDICA QUE NO APORTA INFORMACIÓN RELEVANTE Y EL ARIA-HIDDEN QUE OCULTA LA IMAGEN DE LAS TECNOLOGIAS DE
+                ASISTENCIA -->
                 <div class="imagen">
-                    <img src="img/logoWeb.webp" alt="Logo MyCinema" width="400" height="400">
+                    <img src="img/logoWeb.webp" alt="" aria-hidden="true" width="400" height="400">
                 </div>
             </section>
 

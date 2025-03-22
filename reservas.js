@@ -44,30 +44,81 @@ function mostrarPaso(paso) {
 // Valida cada campo del formulario del Paso 2 usando expresiones regulares
 function validarFormularioPaso2() {
   const campos = [
-    { id: "nombre", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El nombre debe tener al menos 2 letras." },
-    { id: "apellido", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El apellido debe tener al menos 2 letras." },
-    { id: "email", regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, error: "El correo electrónico no es válido." },
-    { id: "telefono", regex: /^\+?\d{7,15}$/, error: "El teléfono debe contener solo números y tener entre 7 y 15 dígitos." },
-    { id: "direccion", regex: /^.{3,}$/, error: "La dirección debe tener al menos 3 caracteres." },
-    { id: "ciudad", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "La ciudad debe tener al menos 2 letras." },
-    { id: "codigo-postal", regex: /^[A-Za-z0-9\s\-]{3,10}$/, error: "El código postal debe tener entre 3 y 10 caracteres." },
-    { id: "pais", regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,}$/, error: "El país debe tener al menos 2 letras." }
+    { 
+      id: "nombre", 
+      validaciones: [
+        { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, error: "El nombre no puede contener números ni caracteres especiales." },
+        { regex: /^.{2,}$/, error: "El nombre debe tener al menos 2 caracteres." }
+      ]
+    },
+    { 
+      id: "apellido", 
+      validaciones: [
+        { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, error: "El apellido no puede contener números ni caracteres especiales." },
+        { regex: /^.{2,}$/, error: "El apellido debe tener al menos 2 caracteres." }
+      ]
+    },
+    { 
+      id: "email", 
+      validaciones: [
+        { regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, error: "El correo electrónico no es válido." }
+      ]
+    },
+    { 
+      id: "telefono", 
+      validaciones: [
+        { regex: /^\d+$/, error: "El teléfono solo puede contener números." },
+        { regex: /^.{7,15}$/, error: "El teléfono debe tener entre 7 y 15 dígitos." }
+      ]
+    },
+    { 
+      id: "direccion", 
+      validaciones: [
+        { regex: /^.{3,}$/, error: "La dirección debe tener al menos 3 caracteres." }
+      ]
+    },
+    { 
+      id: "ciudad", 
+      validaciones: [
+        { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, error: "La ciudad no puede contener números ni caracteres especiales." },
+        { regex: /^.{2,}$/, error: "La ciudad debe tener al menos 2 caracteres." }
+      ]
+    },
+    { 
+      id: "codigo-postal", 
+      validaciones: [
+        { regex: /^\d+$/, error: "El código postal debe contener solo números." },
+        { regex: /^.{3,10}$/, error: "El código postal debe tener entre 3 y 10 caracteres." }
+      ]
+    },
+    { 
+      id: "pais", 
+      validaciones: [
+        { regex: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/, error: "El país no puede contener números ni caracteres especiales." },
+        { regex: /^.{2,}$/, error: "El país debe tener al menos 2 caracteres." }
+      ]
+    }
   ];
 
   for (const campo of campos) {
     const input = document.getElementById(campo.id);
     const valor = input.value.trim();
+
     if (valor === "") {
       input.style.border = "4px solid red";
       alert(`El campo ${campo.id.replace("-", " ")} está vacío.`);
       return false; // Detenemos la validación en el primer error
-    } else if (!campo.regex.test(valor)) {
-      input.style.border = "4px solid red";
-      alert(campo.error);
-      return false; // Detenemos la validación en el primer error
-    } else {
-      input.style.border = ""; // Restablece el borde si el campo es válido
     }
+
+    for (const validacion of campo.validaciones) {
+      if (!validacion.regex.test(valor)) {
+        input.style.border = "4px solid red";
+        alert(validacion.error);
+        return false; // Detenemos la validación en el primer error
+      }
+    }
+
+    input.style.border = ""; // Restablece el borde si el campo es válido
   }
 
   return true; // Si todos los campos son válidos

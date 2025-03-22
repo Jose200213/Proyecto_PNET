@@ -28,10 +28,10 @@
          <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Enlaces de navegación ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <nav>
             <ul>
-               <li><a href="bienvenida.html">Inicio</a></li>
-               <li><a href="salas.html">Salas</a></li>
-               <li><a href="reservas.html">Reservas</a></li>
-               <li><a href="info.html">Info</a></li>
+               <li><a href="bienvenida.html" aria-label="Ir a la pagina de inicio">Inicio</a></li>
+               <li><a href="salas.html" aria-label="Ir a la pagina de salas">Salas</a></li>
+               <li><a href="reservas.html" aria-label="Ir a la pagina de reservas">Reservas</a></li>
+               <li><a href="info.html" aria-label="Ir a la pagina de información">Info</a></li>
             </ul>
          </nav>
       </header>
@@ -67,7 +67,7 @@
 
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Selector de mapa ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
             <form name="maps-selection" class="maps-selection">
-               <select name="maps">
+               <select name="maps" aria-label="Selecciona un cine para ver su ubicación">
                   <option value="yelmoBahia">Cines Yelmo Premium - Bahía Sur</option>
                   <option value="callao">Cines Callao - Madrid</option>
                   <option value="multicineAlAndalus">Multicines Al-Ándalus - Cádiz</option>
@@ -79,11 +79,11 @@
 
          <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Mapas de asociados ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
          <div class="maps-proper-container">
-            <iframe alt="Map - yelmoBahia" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3208.4253552252762!2d-6.212353924481612!3d36.471441272342595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dcd859a362465%3A0x94f92b9afe2d892f!2sCine%20Yelmo%20Premium%20Bah%C3%ADa%20Sur!5e0!3m2!1ses!2ses!4v1741345045279!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe title="Mapa de Cines Yelmo Premium - Bahía Sur" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3208.4253552252762!2d-6.212353924481612!3d36.471441272342595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dcd859a362465%3A0x94f92b9afe2d892f!2sCine%20Yelmo%20Premium%20Bah%C3%ADa%20Sur!5e0!3m2!1ses!2ses!4v1741345045279!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <iframe alt="Map - callao" class="map hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.497536028476!2d-3.708660924277531!3d40.41998067143903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287c5a7ee40d%3A0xe0c8b0bec4693207!2sCines%20Callao!5e0!3m2!1ses!2ses!4v1741346319797!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe title="Mapa de Cines Callao - Madrid" class="map hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.497536028476!2d-3.708660924277531!3d40.41998067143903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287c5a7ee40d%3A0xe0c8b0bec4693207!2sCines%20Callao!5e0!3m2!1ses!2ses!4v1741346319797!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <iframe alt="Map - multicineAlAndalus" class="map hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.9096906794366!2d-6.299562924478583!3d36.53217307232464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dd1619c05dd67%3A0x5801951e17fbff20!2sMulticines%20Al-Andalus%20C%C3%A1diz%20Centro!5e0!3m2!1ses!2ses!4v1741346221034!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe title="Mapa de Multicines Al-Ándalus - Cádiz" class="map hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.9096906794366!2d-6.299562924478583!3d36.53217307232464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dd1619c05dd67%3A0x5801951e17fbff20!2sMulticines%20Al-Andalus%20C%C3%A1diz%20Centro!5e0!3m2!1ses!2ses!4v1741346221034!5m2!1ses!2ses" width="400" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
          </div>
       </div>
 
@@ -92,18 +92,20 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%||                     ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
       <div class="video-body-container">
-         <div class="video-proper-container">
+         <div class="video-proper-container" role="region" aria-label="Carrusel de videos de asociados" aria-live="polite">
          <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Carrusel de videos ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
-            <div class="video-slider">&lt</div>
+            <div class="video-slider" aria-label="Video anterior" aria-controls="video-carousel">&lt</div>
 
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Videos de asociados ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
-            <iframe class="video" width="600" height="350" src="https://www.youtube.com/embed/hLq_NNVo-EU?si=bmaEgMLTx8_1s9ST" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="video-carousel" class="video-carousel" role="list">
+               <iframe class="video" width="600" height="350" src="https://www.youtube.com/embed/hLq_NNVo-EU?si=bmaEgMLTx8_1s9ST" title="Video 1: Instalaciones de Cines Yelmo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+               <iframe class="video hidden" width="600" height="350" src="https://www.youtube.com/embed/X0vVYSIgJ94?si=IQXuHDXjvAWavmK7" title="Video 2: Promociones en Cines Callao" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+               <iframe class="video hidden" width="600" height="350" src="https://www.youtube.com/embed/F1wN0d_a0zI?si=zBF4EZiMm-rfjjWe" title="Video 3: Noticias sobre Multicines Al-Ándalus" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
-            <iframe class="video hidden" width="600" height="350" src="https://www.youtube.com/embed/X0vVYSIgJ94?si=IQXuHDXjvAWavmK7" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-            <iframe class="video hidden" width="600" height="350" src="https://www.youtube.com/embed/F1wN0d_a0zI?si=zBF4EZiMm-rfjjWe" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-            <div class="video-slider">&gt</div>
+            <div class="video-slider" aria-label="Video siguiente" aria-controls="video-carousel">&gt</div>
          </div>
 
          <!-- %%%%%%%%%%%%%%%%%%%%%%%%%|| Texto informativo ||%%%%%%%%%%%%%%%%%%%%%%%%% -->
