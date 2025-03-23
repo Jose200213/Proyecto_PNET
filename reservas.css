@@ -361,7 +361,7 @@ header nav ul li a:hover {
 }
 .leyenda-item > .ejemplo-movilidad {
     background-color: #00008b;
-    width: 40px;
+    width: 40/px;
     height: 40px;
     /*margin-left: 40px;*/
 }
@@ -372,7 +372,7 @@ header nav ul li a:hover {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #cccccc;
+    background-color: #cccc;
     max-width: 500px;
     border-radius: 5px;
     color: #000;
@@ -707,4 +707,3 @@ footer p {
         flex-flow: column;
     }
 }
-

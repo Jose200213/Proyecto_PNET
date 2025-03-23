@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     horario.addEventListener("click", (e) => {
       e.preventDefault;
 
-      if(horario.parentElement.parentElement.parentElement.getAttribute("alt") == "Horario - " + sessionStorage.getItem("nombrePelicula") + " - " + sessionStorage.getItem("nombreCine")) {
+      if(horario.parentElement.parentElement.parentElement.getAttribute("title") == "Horario - " + sessionStorage.getItem("nombrePelicula") + " - " + sessionStorage.getItem("nombreCine")) {
         const nombreSala = horario.parentElement.parentElement.firstElementChild.textContent;
         const horaPelicula = horario.textContent;
         sessionStorage.setItem("nombreSala", nombreSala);
