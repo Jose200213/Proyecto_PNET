@@ -76,10 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-//Los toggle lo que hacen en este caso es que si el elemento tiene la clase hidden se la quita y si no la tiene se la pone, 
-//de esta manera se puede mostrar y ocultar el elemento con un solo evento. Lo hacemos para los banners, las tarjetas de película y el botón "Ver info de salas".
-
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| GUARDADO DE VARIABLES PARA FORMULARIO ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
@@ -119,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     horario.addEventListener("click", (e) => {
       e.preventDefault;
 
-      if(horario.parentElement.parentElement.parentElement.getAttribute("alt") == "Horario - " + sessionStorage.getItem("nombrePelicula") + " - " + sessionStorage.getItem("nombreCine")) {
+      if(horario.parentElement.parentElement.parentElement.getAttribute("title") == "Horario - " + sessionStorage.getItem("nombrePelicula") + " - " + sessionStorage.getItem("nombreCine")) {
         const nombreSala = horario.parentElement.parentElement.firstElementChild.textContent;
         const horaPelicula = horario.textContent;
         sessionStorage.setItem("nombreSala", nombreSala);
