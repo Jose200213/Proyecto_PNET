@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const telon = document.getElementById('telon');
     setTimeout(() => {
         telon.classList.add('open');
-    }, 400); // Espera 1 segundo antes de abrir el telón
+    }, 400); // Espera 0.4 segundo antes de abrir el telón
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                       ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/

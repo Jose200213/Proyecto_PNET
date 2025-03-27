@@ -1,4 +1,8 @@
-// Calcula el total de tickets seleccionados en el Paso 1
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| FUNCIONES AUXILIARES ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 function calcularTotal() {
   const precios = {
     'entrada-nino': 6,
@@ -259,6 +263,7 @@ function validarFormularioPago() {
   return true; // Si todos los campos son válidos
 }
 
+
 // Inicialización y eventos
 document.addEventListener('DOMContentLoaded', () => {
   calcularTotal();
@@ -316,21 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const infoCompra = document.querySelectorAll(".resumen p");
 
   infoCompra.forEach(info => {
-  switch(info.getAttribute("alt")) {
+  switch(info.getAttribute("title")) {
     case "Cine":
-      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreCine");
+      info.textContent = "" + info.getAttribute("title") + ": " + sessionStorage.getItem("nombreCine");
       break;
 
     case "Pelicula":
-      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombrePelicula");
+      info.textContent = "" + info.getAttribute("title") + ": " + sessionStorage.getItem("nombrePelicula");
       break;
 
     case "Sala":
-      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("nombreSala");
+      info.textContent = "" + info.getAttribute("title") + ": " + sessionStorage.getItem("nombreSala");
       break;
 
     case "Horario":
-      info.textContent = "" + info.getAttribute("alt") + ": " + sessionStorage.getItem("horaPelicula");
+      info.textContent = "" + info.getAttribute("title") + ": " + sessionStorage.getItem("horaPelicula");
       break;
   }
 
