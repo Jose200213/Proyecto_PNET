@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Manager</title>
+    <link rel="stylesheet" href="PanelManager.css">
+    <script src="PanelManager.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Panel Manager</h1>
+    </header>
+    <main>
+        <section id="form-section">
+            <h2>Introduce el código de acceso</h2>
+            <form id="access-form">
+                <label for="access-code">Código:</label>
+                <input type="text" id="access-code" name="access-code" required>
+                <button type="submit">Acceder</button>
+            </form>
+        </section>
+        <section id="panel-section" style="display: none;">
+            <!-- Aquí se mostrará el panel de control en el futuro -->
+            <h2>Bienvenido al Panel de Control</h2>
+        </section>
+    </main>
+</body>
+</html>
