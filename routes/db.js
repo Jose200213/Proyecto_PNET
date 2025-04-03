@@ -1,10 +1,10 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 // Cadena de conexión al servicio MongoDB Atlas
-const uri = "mongodb+srv://Jose2002:454545Au@jjcf-pnet-2025.cyep5.mongodb.net/?retryWrites=true&w=majority&appName=JJCF-PNET-2025";
+const uri = "mongodb+srv://DiZaster:ProyectoPNET_DB!@cdg-pnet-2025.6k0cl.mongodb.net/?retryWrites=true&w=majority&appName=CDG-pnet-2025";
 
 // Nombre de la base de datos
-const dbName = "Mycinema";
+const dbName = "MyCinema";
 
 // Opciones de configuración del cliente MongoDB
 const clientOptions = {
