@@ -30,16 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const botones_op = document.getElementById('opBtns').querySelectorAll('input');
     botones_op.forEach(boton => {
         boton.addEventListener('click', () => {
-            if (boton.classList.contains('needId') && boton.classList.contains('needForm') ) {
-                mostrarForms.style.display = 'flex';
+            mostrarForms.style.display = 'flex';
+            mostrarForms.firstElementChild.style.display = 'none';
+            mostrarForms.lastElementChild.style.display = 'none';
+
+            if (boton.classList.contains('needId')) {
                 mostrarForms.firstElementChild.style.display = 'block';
-                mostrarForms.lastElementChild.style.display = 'block';
-            } else if (boton.classList.contains('needId')) {
-                mostrarForms.style.display = 'flex';
-                mostrarForms.firstElementChild.style.display = 'block';
+                if(boton.classList.contains('getId')) { mostrarForms.firstElementChild.querySelector('.getId').style.display = 'block';}
+
+                else if (boton.classList.contains('putId')) { 
+                    mostrarForms.firstElementChild.querySelector('.putId').style.display = 'block';
+                    mostrarForms.firstElementChild.querySelector('.putId').addEventListener('click', () => {
+                        mostrarForms.lastElementChild.style.display = 'block';
+                    })
+
+                    mostrarForms.lastElementChild.querySelector('.putId').style.display = 'block';
+                }
+
+                else if (boton.classList.contains('dltId')) { mostrarForms.firstElementChild.querySelector('.dltId').style.display = 'block';}
+
             } else if (boton.classList.contains('needForm')) {
-                mostrarForms.style.display = 'flex';
                 mostrarForms.lastElementChild.style.display = 'block';
+                if(boton.classList.contains('post')) { mostrarForms.lastElementChild.querySelector('.post').style.display = 'block';}
             };
         })
     })
