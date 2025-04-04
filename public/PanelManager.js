@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const accessCode = document.getElementById('access-code').value;
 
         // Verificar el código de acceso
-        if (accessCode === "sagasgas") { // Cambia "sagasgas" por el código que desees
+        if (accessCode === "a") { // Cambia "sagasgas" por el código que desees
             // Ocultar el formulario de acceso
             formSection.style.display = 'none';
 
@@ -25,4 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Código de acceso incorrecto. Inténtalo de nuevo.");
         }
     });
+
+    const mostrarForms = document.getElementById('mostrarForms');
+    const botones_op = document.getElementById('opBtns').querySelectorAll('input');
+    botones_op.forEach(boton => {
+        boton.addEventListener('click', () => {
+            if (boton.classList.contains('needId') && boton.classList.contains('needForm') ) {
+                mostrarForms.style.display = 'flex';
+                mostrarForms.firstElementChild.style.display = 'block';
+                mostrarForms.lastElementChild.style.display = 'block';
+            } else if (boton.classList.contains('needId')) {
+                mostrarForms.style.display = 'flex';
+                mostrarForms.firstElementChild.style.display = 'block';
+            } else if (boton.classList.contains('needForm')) {
+                mostrarForms.style.display = 'flex';
+                mostrarForms.lastElementChild.style.display = 'block';
+            };
+        })
+    })
 });

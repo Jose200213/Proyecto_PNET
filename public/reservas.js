@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const total = calcularTotal(); // Obtiene el total calculado
         const numEntradas = getTotalTickets(); // Obtiene el total de entradas seleccionadas
         const idAsientos = Array.from(document.querySelectorAll('.zona-asientos .asiento.selected'))
-          .map(seat => seat.getAttribute('data-id')) // Asegúrate de que cada asiento tenga un atributo data-id
+          .map(seat => seat.textContent) // Asegúrate de que cada asiento tenga un atributo data-id
           .join(", ");
         const nomCine = sessionStorage.getItem("nombreCine") ? sessionStorage.getItem("nombreCine") : "Sin definir";
         const nomPelicula = sessionStorage.getItem("nombrePelicula") ? sessionStorage.getItem("nombrePelicula") : "Sin definir";

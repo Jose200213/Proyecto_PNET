@@ -126,3 +126,14 @@ div, form, table, h1 {
     text-align: center;
 }
 
+#mostrarForms {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.formReserva, .idReserva {
+    margin: 0;
+    display: none;
+}
+
