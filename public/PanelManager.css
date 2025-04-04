@@ -127,13 +127,77 @@ div, form, table, h1 {
 }
 
 #mostrarForms {
-    display: none;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Alinear los elementos horizontalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Alinear al inicio verticalmente */
+    gap: 20px; /* Reducir el espacio entre los contenedores */
+    margin-top: 20px;
+    padding: 10px;
 }
 
 .formReserva, .idReserva {
     margin: 0;
     display: none;
+}
+
+
+/* Estilo para el contenedor del ID de la reserva */
+.idReserva {
+    background: #fff;
+    border: 1px solid #005fcc;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1em;
+}
+
+.idReserva label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.idReserva input {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Estilo para el formulario */
+.formReserva {
+    background: #fff;
+    border: 1px solid #005fcc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Limitar el ancho */
+}
+
+.formReserva h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.formReserva label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.formReserva input {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
 }
 
