@@ -1,3 +1,4 @@
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%||                      ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|| FUNCIONES AUXILIARES ||%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
@@ -310,7 +311,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const formValido = validarFormularioPago(); // Llama a la función de validación
       if (formValido) {
-        alert("Has realizado la reserva correctamente");
+
+        // Aquí puedes agregar la lógica para enviar el formulario o realizar la reserva
+        const nombre = document.getElementById("nombre").value;
+        const apellido = document.getElementById("apellido").value;
+        const total = calcularTotal(); // Obtiene el total calculado
+        const numEntradas = getTotalTickets(); // Obtiene el total de entradas seleccionadas
+        const idAsientos = Array.from(document.querySelectorAll('.zona-asientos .asiento.selected'))
+          .map(seat => seat.getAttribute('data-id')) // Asegúrate de que cada asiento tenga un atributo data-id
+          .join(", ");
+        const nomCine = sessionStorage.getItem("nombreCine") ? sessionStorage.getItem("nombreCine") : "Sin definir";
+        const nomPelicula = sessionStorage.getItem("nombrePelicula") ? sessionStorage.getItem("nombrePelicula") : "Sin definir";
+        const tipoSala = sessionStorage.getItem("nombreSala") ? sessionStorage.getItem("nombreSala") : "Sin definir";
+        const horaPelicula = sessionStorage.getItem("horaPelicula") ? sessionStorage.getItem("horaPelicula") : "Sin definir";
+        
+        const nomCliente = `${nombre} ${apellido}`; 
+        const precioTotal = total; // Total calculado
+        //DAR VALOR A LOS CAMPOS DEL DIV OCULTO con class="formReserva" con sus constantes correspondientes
+        document.getElementById("nomCliente").value = nomCliente;
+        document.getElementById("nomCine").value = nomCine;
+        document.getElementById("nomPelicula").value = nomPelicula;
+        document.getElementById("tipoSala").value = tipoSala;
+        document.getElementById("horaPelicula").value = horaPelicula;
+        document.getElementById("numEntradas").value = numEntradas;        
+        document.getElementById("idAsientos").value = idAsientos; // Aquí se guardan los asientos seleccionados
+        document.getElementById("precioTotal").value = precioTotal; // Aquí se guarda el precio total
+
+        $("#IdPostear").click(); // Simula el clic en el botón oculto para enviar el formulario
+        
+
+        alert(" Has realizado la reserva correctamente");
         // Aquí podrías limpiar el formulario o redirigir a otra página
       }
     });

@@ -6,6 +6,8 @@
       <link rel="stylesheet" href="reservas.css">
       <title>Reserva - MyCinema</title>
       <script src="reservas.js"></script>
+      <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+      <script type="text/javascript" src="js/wsinvocations.js"></script>
 
       <!-- Añadir fuentes -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -573,6 +575,27 @@
                   <div class="botones-pago">
                      <button type="button" class="btn-volver" onclick="mostrarPaso(3)">Volver</button>
                      <button type="submit" class="btn-confirmar">Pagar y Confirmar Reserva</button>
+                     <button onclick="postReserva()" id="IdPostear" style="display: none;">Añadir Reserva</button>
+                  </div>
+                  <!-- Formulario para añadir o modificar reservas -->
+                  <div class="formReserva" style="display: none;">
+                     <h3>Formulario de reserva:</h3>
+                     <label>Nombre del cliente:</label>
+                     <input type="text" id="nomCliente" value="Introduce el nombre del cliente"><br>
+                     <label>Nombre del cine:</label>
+                     <input type="text" id="nomCine" value="Introduce el nombre del cine"><br>
+                     <label>Nombre de la película:</label>
+                     <input type="text" id="nomPelicula" value="Introduce el nombre de la película"><br>
+                     <label>Tipo de sala:</label>
+                     <input type="text" id="tipoSala" value="Introduce el tipo de sala"><br>
+                     <label>Hora de la película:</label>
+                     <input type="text" id="horaPelicula" value="Introduce la hora de la película"><br>
+                     <label>Número de entradas:</label>
+                     <input type="number" id="numEntradas" value="Introduce el número de entradas"><br>
+                     <label>IDs de los asientos (separados por comas):</label>
+                     <input type="text" id="idAsientos" value="Introduce los IDs de los asientos"><br>
+                     <label>Precio total:</label>
+                     <input type="number" id="precioTotal" value="Introduce el precio total"><br>
                   </div>
                </form>
          </div>

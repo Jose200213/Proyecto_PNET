@@ -26,122 +26,155 @@ function getHelloAndGoodbye(){
 function getAllReservas() {
    let myUrl = "/reservas";
    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: myUrl,
-      success: function(data) {
-         // Mostrar el JSON formateado dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         console.error("ERROR:", res.status, res.statusText);
-      }
+       type: "GET",
+       dataType: "json",
+       url: myUrl,
+       success: function(data) {
+           // Limpiar la tabla antes de agregar nuevas filas
+           $("#reservasTable tbody").empty();
+
+           // Recorrer los datos y agregarlos a la tabla
+           data.forEach(reserva => {
+               let row = `
+                   <tr>
+                       <td>${reserva._id}</td>
+                       <td>${reserva.nomCliente}</td>
+                       <td>${reserva.nomCine}</td>
+                       <td>${reserva.nomPelicula}</td>
+                       <td>${reserva.tipoSala}</td>
+                       <td>${reserva.horaPelicula}</td>
+                       <td>${reserva.numEntradas}</td>
+                       <td>${reserva.idAsientos.join(", ")}</td>
+                       <td>${reserva.precioTotal}</td>
+                   </tr>
+               `;
+               $("#reservasTable tbody").append(row);
+           });
+       },
+       error: function(res) {
+           console.error("ERROR:", res.status, res.statusText);
+       }
    });
 }
 
 function getReserva(reservaId) {
    let myUrl = "/reservas/" + reservaId;
    $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: myUrl,
-      success: function(data) {
-         // Mostrar el JSON formateado dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         let mensaje = JSON.parse(res.responseText);
-         alert("ERROR: " + mensaje.msg);
-      }
+       type: "GET",
+       dataType: "json",
+       url: myUrl,
+       success: function(reserva) {
+           // Limpiar la tabla antes de agregar la reserva
+           $("#reservasTable tbody").empty();
+
+           // Agregar la reserva a la tabla
+           let row = `
+               <tr>
+                   <td>${reserva._id}</td>
+                   <td>${reserva.nomCliente}</td>
+                   <td>${reserva.nomCine}</td>
+                   <td>${reserva.nomPelicula}</td>
+                   <td>${reserva.tipoSala}</td>
+                   <td>${reserva.horaPelicula}</td>
+                   <td>${reserva.numEntradas}</td>
+                   <td>${reserva.idAsientos.join(", ")}</td>
+                   <td>${reserva.precioTotal}</td>
+               </tr>
+           `;
+           $("#reservasTable tbody").append(row);
+       },
+       error: function(res) {
+           let mensaje = JSON.parse(res.responseText);
+           alert("ERROR: " + mensaje.msg);
+       }
    });
 }
 
 function postReserva() {
    let reservaData = {
-      nomCliente: $("#nomCliente").val(),
-      nomCine: $("#nomCine").val(),
-      nomPelicula: $("#nomPelicula").val(),
-      tipoSala: $("#tipoSala").val(),
-      horaPelicula: $("#horaPelicula").val(),
-      numEntradas: parseInt($("#numEntradas").val()),
-      idAsientos: $("#idAsientos").val().split(","),
-      precioTotal: parseFloat($("#precioTotal").val())
+       nomCliente: $("#nomCliente").val(),
+       nomCine: $("#nomCine").val(),
+       nomPelicula: $("#nomPelicula").val(),
+       tipoSala: $("#tipoSala").val(),
+       horaPelicula: $("#horaPelicula").val(),
+       numEntradas: parseInt($("#numEntradas").val()),
+       idAsientos: $("#idAsientos").val().split(","),
+       precioTotal: parseFloat($("#precioTotal").val())
    };
 
    $.ajax({
-      type: "POST",
-      url: "/reservas",
-      contentType: "application/json",
-      dataType: "json",
-      data: JSON.stringify(reservaData),
-      success: function(data) {
-         // Mostrar el JSON formateado dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         alert("ERROR: " + res.statusText);
-      }
+       type: "POST",
+       url: "/reservas",
+       contentType: "application/json",
+       dataType: "json",
+       data: JSON.stringify(reservaData),
+       success: function(data) {
+           alert("Reserva añadida correctamente.");
+           getAllReservas(); // Actualizar la tabla
+       },
+       error: function(res) {
+           alert("ERROR: " + res.statusText);
+       }
    });
 }
 
 function putReserva(reservaId) {
    let reservaData = {
-      nomCliente: $("#nomCliente").val(),
-      nomCine: $("#nomCine").val(),
-      nomPelicula: $("#nomPelicula").val(),
-      tipoSala: $("#tipoSala").val(),
-      horaPelicula: $("#horaPelicula").val(),
-      numEntradas: parseInt($("#numEntradas").val()),
-      idAsientos: $("#idAsientos").val().split(","),
-      precioTotal: parseFloat($("#precioTotal").val())
+       nomCliente: $("#nomCliente").val(),
+       nomCine: $("#nomCine").val(),
+       nomPelicula: $("#nomPelicula").val(),
+       tipoSala: $("#tipoSala").val(),
+       horaPelicula: $("#horaPelicula").val(),
+       numEntradas: parseInt($("#numEntradas").val()),
+       idAsientos: $("#idAsientos").val().split(","),
+       precioTotal: parseFloat($("#precioTotal").val())
    };
 
    let myUrl = "/reservas/" + reservaId;
 
    $.ajax({
-      type: "PUT",
-      url: myUrl,
-      contentType: "application/json",
-      dataType: "json",
-      data: JSON.stringify(reservaData),
-      success: function(data) {
-         // Mostrar el JSON formateado dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         alert("ERROR: " + res.statusText);
-      }
+       type: "PUT",
+       url: myUrl,
+       contentType: "application/json",
+       dataType: "json",
+       data: JSON.stringify(reservaData),
+       success: function(data) {
+           alert("Reserva modificada correctamente.");
+           getAllReservas(); // Actualizar la tabla
+       },
+       error: function(res) {
+           alert("ERROR: " + res.statusText);
+       }
    });
 }
 
 function deleteReserva(reservaId) {
    let myUrl = "/reservas/" + reservaId;
    $.ajax({
-      type: "DELETE",
-      url: myUrl,
-      success: function(data) {
-         // Mostrar el mensaje de éxito dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         alert("ERROR: " + res.statusText);
-      }
+       type: "DELETE",
+       url: myUrl,
+       success: function(data) {
+           alert("Reserva eliminada correctamente.");
+           getAllReservas(); // Actualizar la tabla
+       },
+       error: function(res) {
+           alert("ERROR: " + res.statusText);
+       }
    });
-   getAllReservas(); 
 }
 
 function deleteAllReservas() {
    let myUrl = "/reservas";
    $.ajax({
-      type: "DELETE",
-      url: myUrl,
-      success: function(data) {
-         // Mostrar el mensaje de éxito dentro de un <pre>
-         $("#resOutput").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
-      },
-      error: function(res) {
-         alert("ERROR: " + res.statusText);
-      }
+       type: "DELETE",
+       url: myUrl,
+       success: function(data) {
+           alert("Todas las reservas eliminadas correctamente.");
+           getAllReservas(); // Actualizar la tabla
+       },
+       error: function(res) {
+           alert("ERROR: " + res.statusText);
+       }
    });
 }
 
